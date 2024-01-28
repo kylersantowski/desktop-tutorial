@@ -19,8 +19,14 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$USER_HOME$/AppData/Local/Google/AndroidStudio2023.1/device-explorer/samsung SM-A127F/_/storage/self/primary/Movies/.thumbnails/.database_uuid" root0="SKIP_INSPECTION" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectId" id="2baxUtgreevQOFEmvQD837DVc4b" />
   <component name="ProjectViewState">
@@ -36,7 +42,8 @@
     "cidr.known.project.marker": "true",
     "git-widget-placeholder": "kylersantowski-patch-1",
     "last_opened_file_path": "C:/Users/Info/OneDrive/Documents/GitHub/desktop-tutorial/heartofstone-globe.gif",
-    "settings.editor.selected.configurable": "preferences.editor.code.editing"
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "device.mirroring"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
