@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiles: A Music Application</title>
+    <style>
+        /* Add your CSS styles here */
+        .block {
+            width: calc(9% - 4px); /* 9 columns with 1% margin */
+            height: 33px;
+            margin: 2px;
+            border-radius: 8px;
+            display: inline-block;
+            background-color: #FFFFFF;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<!-- Main layout that fills the screen -->
+<div id="lay" style="text-align: center;"></div>
+
+<script>
+        // Declare global variables.
+        var items = [];
+        var index = 0;
+        var blockWidth = (1 / 11) - 0.002; // 9 columns
+        var synth, note;
+
+        // Set available notes and colors.
+        var notes = ["E5", "D4", "B4", "A#4", "A4", "G4", "E5", "C#", "F5", "F#", "F#5"];
+        var colors = ["#A3EEFF", "#FFFDC2", "#C4FFD7",];
+
+        // Called when application is started.
+        function OnStart() {
+            // Draw sequencer to main layout.
+            draw();
+        }
+
+        // Draw the sequencer.
+        function draw() {
+            var lay = document.getElementById("lay");
+            lay.style.backgroundColor = "#EEEEEE";
+
+            for (var row = 0; row < 3; row++) { // 3 rows
+                var layHoriz = document.createElement("div");
+                layHoriz.style.display = "inline-block";
+
+                var item = [];
+                for (var col = 0; col < notes.length; col++) { // 11 columns
+                    var block = addBlock(colors[row]);
+                    layHoriz.appendChild(block);
+                    item.push(block);
+                }
+                items.push(item);
+
+                // Add layout to main screen.
+                lay.appendChild(layHoriz);
+            }
+        }
+
+        function addBlock(color) {
+            var block = document.createElement("div");
+            block.className = "block";
+            block.style.backgroundColor = "#FFFFFF";
+            block.onclick = function() {
+                this.style.backgroundColor = (this.dataset.checked === "true") ? "#FFFFFF" : color;
+                this.dataset.checked = (this.dataset.checked === "true") ? "false" : "true";
+            }
+            return block;
+        }
+
+        // Repeat the sequence
+        function repeat(time) {
+            var step = index % 11;
+            for (var i = 0; i < 3; i++) { // Loop 3 rows
+                var note = notes[i]; // Find note.
+                var block = items[i][step]; // Find block.
+                block.animate({rotation: 20}, 500);
+
+                if (block.dataset.checked === "true") {
+                    synth.playStopTone(note, "1/4n", time);
+                }
+            }
+            index++;
+        }
+
+        // Function to simulate the Music API methods
+        var Music = {
+            createPolySynth: function(synthName, options) {
+                return {
+                    playStopTone: function(note, duration, time) {
+                        console.log("Playing note:", note);
+                    }
+                };
+            }
+        };
+
+        // Function to simulate the music.startTransport() method
+        function startTransport() {
+            setInterval(function() {
+                repeat(new Date().getTime());
+            }, 1000);
+        }
+
+        // Start the application
+        OnStart();
+        startTransport();
+    </script>
+</body>
+</html>
