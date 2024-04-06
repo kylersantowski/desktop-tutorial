@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sheep Instances</title>
+  <link rel="stylesheet" href="storyteller.css">
+  <style>
+  body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f4f4f4;
+}
+
+.container {
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Sheep Instances</h1>
+    <textarea id="textInput" rows="5" cols="100" placeholder="Type your text here..."></textarea>
+    <div class="button-group">
+      <button class="phraseButton" onclick="addPhrase('This is an example of sheep instances in English. ')">Phrase 1</button>
+      <button class="phraseButton" onclick="addPhrase('Once upon a time, in a quaint village nestled between rolling hills and ancient forests, there existed a peculiar garden, but this was no ordinary garden—it was a clockwork garden, where gears turned instead of petals blooming.')">Phrase 2</button>
+      <!-- Add more buttons for additional phrases as needed -->
+    </div>
+    <button id="speakButton">Speak</button>
+  </div>
+  
+  <script src="storyteller.js">
+  // Function to add a phrase to the textarea
+function addPhrase(phrase) {
+  document.getElementById("textInput").value += phrase;
+}
+
+// Function to speak the given text
+function speakText(text) {
+  if ("speechSynthesis" in window) {
+    var utterance = new SpeechSynthesisUtterance(text);
+    speechSynthesis.speak(utterance);
+  } else {
+    alert("Text-to-speech is not supported in this browser.");
+  }
+}
+
+// Event listener for the button click
+document.getElementById("speakButton").addEventListener("click", function () {
+  var text = document.getElementById("textInput").value;
+  speakText(text);
+});
+  </script>
+</body>
+</html>
