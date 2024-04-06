@@ -1,10 +1,18 @@
-# desktop-tutorial
+> ---
 
-Welcome to the desktop tutorial repository! This is a toolkit designed to help you navigate the programming landscape effectively. Whether you're a beginner or an experienced coder, you'll find a wealth of resources here to enhance your skills and understanding.
+> |[desktop-tutorial](#desktop-tutorial)|[introduction](#introduction)|
+> |-------------------------------------|-----------------------------|
+> | <details><summary>Welcome to the desktop tutorial repository!</summary><ul><li>This is a toolkit designed to help you navigate the programming landscape effectively.</li><li>Whether you're a beginner or an experienced coder, you'll find a wealth of resources here to enhance your skills and understanding.</li></ul></details>|<details><summary>Embarking on a coding journey can be daunting.</summary><ul><li>With the right tools and resources, you can navigate the programming landscape with confidence.</li><li>This repository serves as a compilation of essential code, challenges, notes, projects, and exercises that I've assembled throughout my own coding journey.</li></ul><details><summary></summary>I'm sharing it here as a reference for you to use and learn from.</details></details>|
+> |<details><summary>|<ul><li><details><summary><ol><li></summary>list-item.</li></ol></details></li></ul></summary></details>|
 
-## Introduction
+> ---
 
-Embarking on a coding journey can be daunting, but with the right tools and resources, you can navigate the programming landscape with confidence. This repository serves as a compilation of essential code, challenges, notes, projects, and exercises that I've assembled throughout my own coding journey. I'm sharing it here as a reference for you to use and learn from.
+a|||||||||b|||||||||c|||||||||
+-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|
+A| | | | | | | ||B| | | | | | | | |C| | | | | | | | |
+**A**||1|1|0|0|0|0||**B**||1|0|1|0|0|0||**C**||1|0|1|0|0|0||
+
+> ---
 
 ## Contents
 
@@ -33,9 +41,6 @@ In the exercises section, you'll find a series of coding exercises that are desi
 
 If you have any suggestions, improvements, or additional resources that you'd like to contribute to this repository, feel free to submit a pull request. Your contributions are highly appreciated!
 
-## License
-
-This project is licensed under the [MIT License](LICENSE).
 
 ## Acknowledgements
 
@@ -72,16 +77,20 @@ A|B|C|D|E|F|G|H|I|J|K|L|M|N|O|P|Q|R|S|T|U|V|W|X|Y|Z
 
 ---
 
-||
----|
-[1],[1,6,15,20,15,6,1]
-[1,1],[1,5,10,10,5,1]
-[1,2,1],[1,4,6,4,1]
-[1,3,3,1],[1,3,3,1]
-[1,4,6,4,1],[1,2,1]
-[1,5,10,10,5,1],[1,1]
-[1,6,15,20,15,6,1],[1]|---
-||
+|**Pascals's Triangle**|
+|---|
+|[1]|
+|[1,1]|
+|[1,2,1]|
+|[1,3,3,1]|
+|[1,4,6,4,1]|
+|[1,5,10,10,5,1]|
+|[1,6,15,20,15,6,1]|
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
 
 [^1]: .html
 [^2]: .css
