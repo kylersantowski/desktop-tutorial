@@ -22,3 +22,72 @@ body {
   height: 100vh; /* Set the height of the canvas to 100% of the viewport height */
   margin: 5px; /* Add margin around the canvas */
 }
+/* This is for the the etch n sketch app */
+
+// This is to draw a cubic bezier
+/* Styling for the 'i' element */
+i {
+  position: fixed; /* Fixed positioning */
+  width: 1px; /* Set width */
+  height: 1px; /* Set height */
+  border-radius: 50%; /* Rounded corners to create a circle */
+  border: 1px solid black; /* Border */
+  background: radial-gradient(at 50% 50%, #0000, #000a) red; /* Radial gradient background */
+  left: var(--x); /* Positioning using custom property --x */
+  top: var(--y); /* Positioning using custom property --y */
+}
+
+/* Animation when 'start' class is added */
+i.start {
+  animation: x 1s, y 2.99792458s; /* Apply two animations: x and y */
+  animation-timing-function: cubic-bezier(0.0001, -400, 10, 800); /* Animation timing function */
+  animation-iteration-count: infinite; /* Infinite animation */
+}
+
+/* Keyframes for horizontal movement */
+@keyframes x {
+  to { left: calc(var(--x) + 2px); } /* Move 2px to the right */
+}
+
+/* Keyframes for vertical movement */
+@keyframes y {
+  to { top: calc(var(--y) + 2px); } /* Move 2px down */
+}
+
+/* Styling for the 'd' element */
+d {
+  position: fixed; /* Fixed positioning */
+  height: 100px; /* Set height */
+  width: 1px; /* Set width */
+  background: #222; /* Background color */
+  border-radius: 50%; /* Rounded corners to create a circle */
+  
+  /* Animation for rotation */
+  animation: twist 1s alternate infinite; /* Apply rotation animation */
+}
+
+/* Keyframes for rotation */
+@keyframes twist {
+  25% {
+    transform: rotateX(-360deg) rotateY(-360deg) skew(-360deg); /* Rotate at 25% */
+  }
+  75% {
+    transform: rotateX(360deg) rotateY(360deg) skew(360deg); /* Rotate at 75% */
+  }
+}
+
+/* Styling for the button */
+button {
+  border: none; /* Remove border */
+  border-radius: 10px; /* Rounded corners */
+  padding: 20px 20px; /* Padding */
+  cursor: pointer; /* Cursor type */
+  position: fixed; /* Fixed positioning */
+  top: 0px; /* Align to the top */
+  right: 0px; /* Align to the right */
+  font-family: sans-serif; /* Font family */
+  font-size: 20px; /* Font size */
+  background: #3d3d3d; /* Background color */
+  color: #fff; /* Text color */
+}
+// This is to draw a cubic bezier
