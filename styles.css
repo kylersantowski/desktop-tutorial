@@ -1,4 +1,4 @@
-/* This is for the the etch n sketch app */
+/* 🐙 This is for the the etch n sketch app 🎨 */
 /* Resetting default body styles */
 body {
   margin: 0; /* Remove default margin */
@@ -22,9 +22,9 @@ body {
   height: 100vh; /* Set the height of the canvas to 100% of the viewport height */
   margin: 5px; /* Add margin around the canvas */
 }
-/* This is for the the etch n sketch app */
+/* 🐱‍💻 This is for the the etch n sketch app 🎨 */
 
-// This is to draw a cubic bezier
+// 🖊️ This is to draw a cubic bezier
 /* Styling for the 'i' element */
 i {
   position: fixed; /* Fixed positioning */
@@ -90,4 +90,4 @@ button {
   background: #3d3d3d; /* Background color */
   color: #fff; /* Text color */
 }
-// This is to draw a cubic bezier
+// 🖊️ This is to draw a cubic bezier
