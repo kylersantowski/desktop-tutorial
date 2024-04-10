@@ -195,3 +195,45 @@ function drawColorSelector(ctx) {
   ctx.stroke();
 }
 // This is for the etch n sketch
+
+/*
+> <!--Add a space to see better-->
+*/
+
+
+// This is to draw a cubic bezier
+// Select the first 'i' element in the document
+let elem = document.querySelector('i');
+
+// Variable to store the start time of the animation
+let start;
+
+// Function to continuously debug and update the animation
+function debug(timestamp) {
+  // If start time is undefined, set it to the current timestamp
+  if (start === undefined)
+    start = timestamp;
+
+  // Calculate the elapsed time since the animation started
+  const elapsed = timestamp - start;
+
+  // Get the position and size of the 'i' element
+  let rect = elem.getBoundingClientRect();
+
+  // Insert a 'd' element representing the debug point at the center of the 'i' element
+  document.body.insertAdjacentHTML("beforeBegin",'<d style="top:'+(rect.y + rect.height/2)+'px;left:'+(rect.x + rect.width/2)+'px;"></d>');
+
+  // Call debug function again to continue the animation
+  window.requestAnimationFrame(debug);
+}
+
+// Add a click event listener to a button
+document.querySelector("button").addEventListener("click",function() {
+  // Add 'start' class to the 'i' element to trigger animation
+  elem.classList.add("start");
+  
+  // Start the animation by calling the debug function
+  window.requestAnimationFrame(debug);
+});
+
+// This is to draw a cubic bezier
