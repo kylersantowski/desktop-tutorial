@@ -23,6 +23,7 @@ function divide(a, b) {
     return a / b;
 }
 
+// This is for the etch n sketch app
 // Variable to keep track of the number of steps
 var count = 0;
 
@@ -193,3 +194,4 @@ function drawColorSelector(ctx) {
   }
   ctx.stroke();
 }
+// This is for the etch n sketch
