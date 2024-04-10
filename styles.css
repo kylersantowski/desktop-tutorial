@@ -1,0 +1,24 @@
+/* This is for the the etch n sketch app */
+/* Resetting default body styles */
+body {
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  overflow: hidden; /* Hide any overflowing content */
+}
+
+/* Styling for the container of information */
+#infoContainer {
+  position: absolute; /* Position the container relative to the nearest positioned ancestor */
+  top: 0; /* Align the container to the top of the viewport */
+  right: 0; /* Align the container to the right side of the viewport */
+  padding: 10px; /* Add padding around the content inside the container */
+  margin: 10px; /* Add margin around the container */
+  background-color: #f0f0f0; /* Set background color for the container */
+}
+
+/* Styling for the color graph canvas */
+#colorGraph {
+  width: 100vw; /* Set the width of the canvas to 100% of the viewport width */
+  height: 100vh; /* Set the height of the canvas to 100% of the viewport height */
+  margin: 5px; /* Add margin around the canvas */
+}
