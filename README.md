@@ -1,3 +1,51 @@
+# Self Profile
+
+## Overview
+This self-profile script is designed to provide a structured representation of personal information, skills, projects, achievements, and favorites for Kyle Santowski.
+
+## Bio Section
+- `name`: Kyle
+- `lastname`: Santowski
+- `intro`: Passionate developer with a love for coding.
+- `job`: Developer
+- `education`: My Degrees, Graduation Year - University
+- `contact`:
+  - `primary-email`: santowskikr@gmail.com
+  - `secondary-email`: santowskikylerobert@gmail.com
+  - `work-email`: kyle@heartofstoneclothing.com
+  - `social-media`:
+    - Facebook: [Heart of Stone Clothing](https://facebook.com/heartofstoneclothing)
+    - Instagram: [Heart of Stone Clothing Online](https://instagram.com/heart_of_stone_clothing_online)
+    - LinkedIn: [Kyle Santowski](www.linkedin.com/in/kyle-santowski-580448195)
+    - Twitter: [@KyleRSantowski](https://twitter.com/@KyleRSantowski)
+
+## Skills
+- Skill 1: HTML (placeholder)
+- Skill 2: CSS (placeholder)
+- Skill 3: JavaScript (placeholder)
+
+## Projects
+- Project 1: Description of Project 1 [GitHub](github.com/heartofstoneclothing)
+- Project 2: Description of Project 2 [GitHub](github.com/heartofstone.io)
+
+## Achievements
+- Web Design: [Certification](https://www.freecodecamp.org/certification/fcc9d8e50d8-024e-4f1d-b49e-bc2927b1692f/responsive-web-design)
+- JavaScript: [Certification](https://www.freecodecamp.org/certification/fcc9d8e50d8-024e-4f1d-b49e-bc2927b1692f/javascript-algorithms-and-data-structures)
+- Front End: [Certification](https://www.freecodecamp.org/certification/fcc9d8e50d8-024e-4f1d-b49e-bc2927b1692f/front-end-development-libraries)
+- Data Visualization: [Certification](https://www.freecodecamp.org/certification/fcc9d8e50d8-024e-4f1d-b49e-bc2927b1692f/data-visualization)
+
+## Usage
+1. Clone this repository.
+2. Open the `self_profile.vim` file in your Vim editor.
+3. Modify the script with your personal information, skills, projects, achievements, etc.
+4. Save the changes.
+
+## Contributions
+Contributions are welcome! Feel free to fork this repository and make improvements.
+
+## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
 > <head>
 >  <meta charset="UTF-8">
 >  <meta name="viewport" content="width=device-width, initial-scale=1.0">
