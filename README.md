@@ -21,8 +21,11 @@ This self-profile script is designed to provide a structured representation of p
 
 ## Skills
 - Skill 1: HTML (placeholder)
+  - html
 - Skill 2: CSS (placeholder)
+  - css
 - Skill 3: JavaScript (placeholder)
+  - js
 
 ## Projects
 - Project 1: Description of Project 1 [GitHub](github.com/heartofstoneclothing)
@@ -68,7 +71,16 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
     </tr>
   </table>
 </details>
-
+<details>
+  <summary>Middle Names</summary>
+  <table>
+    <tr>
+      <td>
+      <li>Elizabeth</li><li>James</li><li>Marie</li><li>Alexander</li><li>Grace</li><li>William</li><li>Rose</li><li>Thomas</li><li>Anne</li><li>Michael</li><li>Louise</li><li>David</li><li>Catherine</li><li>Joseph</li><li>Amelia</li><li>Patrick</li><li>Eleanor</li><li>Charles</li><li>Margaret</li><li>Edward</li><li>Jane</li><li>Benjamin</li><li>Olivia</li><li>Henry</li><li>Victoria</li><li>Robert</li><li>Charlotte</li><li>Frances</li><li>Daniel</li><li>Alice</li><li>John</li><li>Evelyn</li><li>Andrew</li><li>Sophia</li><li>Samuel</li><li>Claire</li><li>George</li><li>Abigail</li><li>Matthew</li><li>Louise</li><li>Richard</li><li>Audrey</li><li>Christopher</li><li>Grace</li><li>Timothy</li><li>Penelope</li><li>Stephen</li><li>Harper</li><li>Anthony</li><li>Elizabeth</li><li>Paul</li><li>Josephine</li><li>Peter</li><li>Isabelle</li><li>Jonathan</li><li>Ruby</li><li>Katherine</li><li>James</li><li>Emily</li><li>Ryan</li><li>Juliet</li><li>Daniel</li><li>Scarlett</li><li>Oliver</li><li>Madeline</li><li>William</li><li>Lily</li><li>Nathaniel</li><li>Hazel</li><li>Philip</li><li>Elise</li><li>Jeffrey</li><li>Seraphina</li><li>Miles</li><li>Grace</li><li>Vincent</li><li>Penelope</li><li>Patrick</li><li>Isla</li><li>Charles</li><li>Evelyn</li><li>Gregory</li><li>Eliza</li><li>Russell</li><li>Clara</li><li>Douglas</li><li>Lucy</li><li>Russell</li><li>Caroline</li><li>Morgan</li><li>Liam</li><li>Paige</li><li>Alexander</li><li>Avery</li><li>Lawrence</li><li>Aurora</li><li>Wesley</li><li>Delilah</li><li>Calvin</li><li>Celeste</li>
+      </td>
+    </tr>
+  </table>
+  </details>
 ---
 
 > <head>
