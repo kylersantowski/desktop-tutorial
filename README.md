@@ -1,5 +1,3 @@
-
-
 # Self Profile
 
 ## Overview
@@ -47,6 +45,119 @@ Contributions are welcome! Feel free to fork this repository and make improvemen
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+<details>
+  <summary>Titles & Honorifics</summary>
+  <table>
+    <tr>
+      <td>
+        <li>Mr.</li>
+        <li>Mrs.</li>
+        <li>Miss</li>
+        <li>Ms.</li>
+        <li>Dr.</li>
+<li>Prof.</li>
+<li>Rev.</li>
+<li>Hon.</li>
+<li>Sir</li>
+<li>Madam</li>
+<li>Esq.</li>
+<li>Capt.</li>
+<li>Maj.</li>
+<li>Col.</li>
+<li>Gen.</li>
+<li>Adm.</li>
+<li>Sgt.</li>
+<li>Cpl.</li>
+<li>Pvt.</li>
+<li>Fr.</li>
+<li>Sr.</li>
+<li>Jr.</li>
+<li>Rabbi</li>
+<li>Imam</li>
+<li>Sheikh</li>
+<li>Pastor</li>
+<li>Bishop</li>
+<li>Cardinal</li>
+<li>Father</li>
+<li>Mother</li>
+<li>Brother</li>
+<li>Sister</li>
+<li>Duke</li>
+<li>Duchess</li>
+<li>Earl</li>
+<li>Count</li>
+<li>Countess</li>
+<li>Baron</li>
+<li>Baroness</li>
+<li>Lord</li>
+<li>Lady</li>
+<li>King</li>
+<li>Queen</li>
+<li>Prince</li>
+<li>Princess</li>
+<li>Emperor</li>
+<li>Empress</li>
+<li>President</li>
+<li>Vice President</li>
+<li>Governor</li>
+<li>Mayor</li>
+<li>Ambassador</li>
+<li>Judge</li>
+<li>Justice</li>
+<li>Commissioner</li>
+<li>Officer</li>
+<li>Director</li>
+<li>Chairman</li>
+<li>Chairwoman</li>
+<li>CEO</li>
+<li>CFO</li>
+<li>COO</li>
+<li>CTO</li>
+<li>CMO</li>
+<li>CIO</li>
+<li>CISO</li>
+<li>CRO</li>
+<li>CDO</li>
+<li>Chancellor</li>
+<li>Dean</li>
+<li>Professor</li>
+<li>Lecturer</li>
+<li>Researcher</li>
+<li>Scientist</li>
+<li>Engineer</li>
+<li>Architect</li>
+<li>Artist</li>
+<li>Composer</li>
+<li>Author</li>
+<li>Poet</li>
+<li>Playwright</li>
+<li>Journalist</li>
+<li>Editor</li>
+<li>Photographer</li>
+<li>Filmmaker</li>
+<li>Actor</li>
+<li>Actress</li>
+<li>Musician</li>
+<li>Singer</li>
+<li>Composer</li>
+<li>Conductor</li>
+<li>Chef</li>
+<li>Sommelier</li>
+<li>Winemaker</li>
+<li>Philanthropist</li>
+<li>Activist</li>
+<li>Advocate</li>
+<li>Volunteer</li>
+<li>Mentor</li>
+<li>Coach</li>
+      </td>
+    </tr>
+  </table>
+</details>
+---
 
 > <head>
 >  <meta charset="UTF-8">
@@ -1216,7 +1327,126 @@ bookstore:
 Both XML and YAML have their own use cases and advantages. XML is commonly used in web services and document storage, while YAML is often used in configuration files and data serialization. Depending on your specific requirements and preferences, you can choose the one that best fits your needs. Let me know if you have any questions or if there's anything specific you'd like to learn more about!
 
 ---
-|[English](#English)|
-|---------------------------|
-|Do You Speak It?|
 
+
+---
+
+import pygame
+import random
+import math
+
+# Initialize Pygame
+pygame.init()
+
+# Screen dimensions
+SCREEN_WIDTH = 800
+SCREEN_HEIGHT = 600
+screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+pygame.display.set_caption("Projectile Game")
+
+# Colors
+WHITE = (255, 255, 255)
+BLACK = (0, 0, 0)
+RED = (255, 0, 0)
+
+# Fonts
+font = pygame.font.Font(None, 36)
+
+# Level 1: Adjusting Parabolic Path with Sliders
+def level1():
+    # Generate random wall
+    wall_height = random.randint(100, SCREEN_HEIGHT - 200)
+    wall_x = random.randint(100, SCREEN_WIDTH - 200)
+    wall_width = 50
+    
+    # Player variables
+    angle = 45
+    velocity = 50
+
+    # Game loop
+    running = True
+    while running:
+        screen.fill(WHITE)
+        
+        # Draw wall
+        pygame.draw.rect(screen, BLACK, (wall_x, wall_height, wall_width, SCREEN_HEIGHT - wall_height))
+        
+        # Draw projectile
+        start_x, start_y = 50, SCREEN_HEIGHT - 50
+        time = 0
+        while True:
+            x = start_x + velocity * math.cos(math.radians(angle)) * time
+            y = start_y - (velocity * math.sin(math.radians(angle)) * time - 0.5 * 9.8 * time ** 2)
+            pygame.draw.circle(screen, RED, (int(x), int(y)), 5)
+            time += 0.1
+            if x > wall_x and y > wall_height:
+                break
+        
+        # Display angle and velocity
+        angle_text = font.render("Angle: " + str(angle), True, BLACK)
+        screen.blit(angle_text, (50, 50))
+        velocity_text = font.render("Velocity: " + str(velocity), True, BLACK)
+        screen.blit(velocity_text, (50, 100))
+        
+        # Event handling
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                running = False
+            elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_UP:
+                    angle += 1
+                elif event.key == pygame.K_DOWN:
+                    angle -= 1
+                elif event.key == pygame.K_LEFT:
+                    velocity -= 1
+                elif event.key == pygame.K_RIGHT:
+                    velocity += 1
+
+        pygame.display.flip()
+
+# Level 2: Entering Quadratic Equation Coefficients
+def level2():
+    # Prompt user for coefficients
+    a = int(input("Enter coefficient a: "))
+    b = int(input("Enter coefficient b: "))
+    c = int(input("Enter coefficient c: "))
+
+    # Calculate discriminant
+    discriminant = b ** 2 - 4 * a * c
+
+    # Calculate roots
+    if discriminant > 0:
+        root1 = (-b + math.sqrt(discriminant)) / (2 * a)
+        root2 = (-b - math.sqrt(discriminant)) / (2 * a)
+        print("Roots are real and different.")
+        print("Root 1:", root1)
+        print("Root 2:", root2)
+    elif discriminant == 0:
+        root = -b / (2 * a)
+        print("Roots are real and same.")
+        print("Root:", root)
+    else:
+        real_part = -b / (2 * a)
+        imaginary_part = math.sqrt(abs(discriminant)) / (2 * a)
+        print("Roots are complex.")
+        print("Root 1:", real_part, "+", imaginary_part, "i")
+        print("Root 2:", real_part, "-", imaginary_part, "i")
+
+# Main menu
+def main_menu():
+    print("Welcome to Projectile Game!")
+    print("Choose a level:")
+    print("1. Adjust Parabolic Path with Sliders")
+    print("2. Enter Quadratic Equation Coefficients")
+    choice = input("Enter your choice (1/2): ")
+    if choice == "1":
+        level1()
+    elif choice == "2":
+        level2()
+    else:
+        print("Invalid choice!")
+
+# Run the game
+main_menu()
+
+---
