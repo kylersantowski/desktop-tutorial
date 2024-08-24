@@ -1,5 +1,11 @@
 # [Math Equation Solver Recipe][#Math]
 
+---
+
+# [Tiles: A music composer][#Tiles]
+
+---
+
 ## Ingredients:
 1. Mathematical equations of various types (linear, quadratic, trigonometric, etc.)
 2. Knowledge of mathematical operations (addition, subtraction, multiplication, division, exponentiation, etc.)
@@ -46,3 +52,4 @@
 Share your problem-solving journey with others and inspire them to approach math equations with confidence and enthusiasm.
 
 [#Math]: maths.html
+[#Tiles]: tiles.html
