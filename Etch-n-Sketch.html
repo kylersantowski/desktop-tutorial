@@ -1,16 +1,30 @@
-<!-- This is for etch n sketch -->
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Etch n Sketch</title>
+  <link rel="stylesheet" href="etch.css" />
 </head>
 <body onload="OnStart()">
+  <!-- This is for the Etch n Sketch app -->
+  <div id="infoContainer">
+    <!-- Add any information or controls related to Etch n Sketch here -->
+  </div>
+
+  <!-- This is to draw a cubic Bezier -->
+  <i style="--x:300px;--y:300px;"></i>
+  <button onclick="startAnimation()">▶</button>
+
+  <script>
+    function OnStart() {
+      // Initialize your Etch n Sketch app here
+    }
+
+    function startAnimation() {
+      const dot = document.querySelector('i');
+      dot.classList.add('start');
+    }
+  </script>
 </body>
 </html>
-<!-- This is for etch n sketch -->
-
-<!-- Ths s to draw a cubic bezier-->
-<i style="--x:300px;--y:300px;"></i>
-<button>▶</button>
-<!-- Ths s to draw a cubic bezier-->
