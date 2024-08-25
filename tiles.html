@@ -5,108 +5,266 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tiles: A Music Application</title>
     <style>
-        /* Add your CSS styles here */
-        .block {
-            width: calc(9% - 4px); /* 9 columns with 1% margin */
-            height: 33px;
-            margin: 2px;
-            border-radius: 8px;
-            display: inline-block;
-            background-color: #FFFFFF;
-            cursor: pointer;
-        }
+        body {
+ font-family: Arial, sans-serif;
+ margin: 0;
+ padding: 20px;
+ background-color: #f0f0f0;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ height: 100vh;
+}
+
+h1 {
+ margin-bottom: 20px;
+ font-size: 24px;
+ color: #333;
+}
+
+.container {
+ max-width: 900px;
+ width: 100%;
+ background-color: #fff;
+ border-radius: 8px;
+ box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+ padding: 30px;
+ text-align: center;
+}
+
+.controls {
+ display: flex;
+ justify-content: space-between;
+ margin-bottom: 10px;
+ gap: 10px; /* Add spacing between columns */
+}
+
+.input-group {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+}
+
+label {
+ margin-bottom: 5px;
+ font-size: 14px;
+ color: #555;
+}
+
+input[type="number"],
+input[type="color"],
+button {
+ padding: 10px;
+ border-radius: 5px;
+ border: 1px solid #ccc;
+ font-size: 14px;
+ box-sizing: border-box;
+ width: 100%;
+}
+
+button {
+ background-color: #007bff;
+ color: #fff;
+ border: none;
+ cursor: pointer;
+ font-size: 16px;
+ transition: background-color 0.3s ease;
+ height: 55px;
+}
+
+button:hover {
+ background-color: #0056b3;
+}
+
+canvas {
+ background-color: #f9f9f9;
+ border: 1px solid #ccc;
+ border-radius: 5px;
+ cursor: grab;
+ width: 100%;
+ height: auto;
+}
     </style>
 </head>
 <body>
-<!-- Main layout that fills the screen -->
-<div id="lay" style="text-align: center;"></div>
+ <div class="container">
+  <h1>Sine Wave Note Example</h1>
+  <div class="controls">
+   <div class="input-group">
+    <button onclick="togglePlayPause()">⏯</button>
+   </div>
+   <div class="input-group">
+    <button onclick="stopPlayback()">⏹</button>
+   </div>
+   <div class="input-group">
+    <label for="frequencyInput">Frequency:</label>
+    <input type="number" id="frequencyInput" value="404" min="1" oninput="updateVisualization()">
+   </div>
+   <div class="input-group">
+    <label for="durationInput">Duration (seconds):</label>
+    <input type="number" id="durationInput" value="0.5" min="0.1" step="0.1" oninput="updateVisualization()">
+   </div>
+   <div class="input-group">
+    <label for="lineWidthInput">Line Width:</label>
+    <input type="number" id="lineWidthInput" value="1" min="1" oninput="updateVisualization()">
+   </div>
+   <div class="input-group">
+    <label for="colorInput">Waveform Color:</label>
+    <input type="color" id="colorInput" value="#000000" oninput="updateVisualization()">
+   </div>
+  </div>
+  <canvas id="waveformCanvas" width="800" height="400"></canvas>
+ </div>
 
 <script>
-        // Declare global variables.
-        var items = [];
-        var index = 0;
-        var blockWidth = (1 / 11) - 0.002; // 9 columns
-        var synth, note;
+       var audioCtx; // AudioContext instance
+var oscillator; // Oscillator node
+var isPlaying = false; // Flag to track if the sine wave is playing
+var scaleFactor = 1; // Scale factor for zooming
+var offsetX = 0; // Offset for panning
+var offsetY = 0;
+var phase = 0; // Phase shift to animate the wave
+var animationId; // ID for the animation frame
 
-        // Set available notes and colors.
-        var notes = ["E5", "D4", "B4", "A#4", "A4", "G4", "E5", "C#", "F5", "F#", "F#5"];
-        var colors = ["#A3EEFF", "#FFFDC2", "#C4FFD7",];
+function initAudioContext() {
+ audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+}
 
-        // Called when application is started.
-        function OnStart() {
-            // Draw sequencer to main layout.
-            draw();
-        }
+function playSineWave() {
+ if (!audioCtx) {
+  initAudioContext();
+ }
+ if (oscillator) {
+  oscillator.disconnect(); // Disconnect previous oscillator if exists
+ }
+ oscillator = audioCtx.createOscillator();
+ var frequency = parseFloat(document.getElementById("frequencyInput").value);
+ oscillator.frequency.setValueAtTime(frequency, audioCtx.currentTime);
+ oscillator.type = "sine";
+ oscillator.connect(audioCtx.destination);
+ oscillator.start();
+ isPlaying = true;
+ animateSineWave(); // Start the animation
+}
 
-        // Draw the sequencer.
-        function draw() {
-            var lay = document.getElementById("lay");
-            lay.style.backgroundColor = "#EEEEEE";
+function stopPlayback() {
+ if (oscillator) {
+  oscillator.stop();
+  isPlaying = false;
+  cancelAnimationFrame(animationId); // Stop the animation
+ }
+}
 
-            for (var row = 0; row < 3; row++) { // 3 rows
-                var layHoriz = document.createElement("div");
-                layHoriz.style.display = "inline-block";
+function togglePlayPause() {
+ if (isPlaying) {
+  stopPlayback();
+ } else {
+  playSineWave();
+ }
+}
 
-                var item = [];
-                for (var col = 0; col < notes.length; col++) { // 11 columns
-                    var block = addBlock(colors[row]);
-                    layHoriz.appendChild(block);
-                    item.push(block);
-                }
-                items.push(item);
+function animateSineWave() {
+ visualizeSineWave();
+ phase += 0.05; // Increment phase for the next frame
+ animationId = requestAnimationFrame(animateSineWave); // Request next frame
+}
 
-                // Add layout to main screen.
-                lay.appendChild(layHoriz);
-            }
-        }
+function visualizeSineWave() {
+ var canvas = document.getElementById("waveformCanvas");
+ var ctx = canvas.getContext("2d");
+ var width = canvas.width;
+ var height = canvas.height;
+ ctx.clearRect(0, 0, width, height);
 
-        function addBlock(color) {
-            var block = document.createElement("div");
-            block.className = "block";
-            block.style.backgroundColor = "#FFFFFF";
-            block.onclick = function() {
-                this.style.backgroundColor = (this.dataset.checked === "true") ? "#FFFFFF" : color;
-                this.dataset.checked = (this.dataset.checked === "true") ? "false" : "true";
-            }
-            return block;
-        }
+ var frequency = parseFloat(document.getElementById("frequencyInput").value);
+ var durationInSeconds = parseFloat(
+  document.getElementById("durationInput").value
+ );
+ var sampleRate = audioCtx.sampleRate;
+ var numSamples = sampleRate * durationInSeconds;
+ var waveform = new Float32Array(numSamples);
 
-        // Repeat the sequence
-        function repeat(time) {
-            var step = index % 11;
-            for (var i = 0; i < 3; i++) { // Loop 3 rows
-                var note = notes[i]; // Find note.
-                var block = items[i][step]; // Find block.
-                block.animate({rotation: 20}, 500);
+ for (var i = 0; i < numSamples; i++) {
+  var t = i / sampleRate;
+  var wave = Math.sin(2 * Math.PI * frequency * t + phase); // Apply phase shift
+  waveform[i] = wave;
+ }
 
-                if (block.dataset.checked === "true") {
-                    synth.playStopTone(note, "1/4n", time);
-                }
-            }
-            index++;
-        }
+ var color = document.getElementById("colorInput").value;
+ var lineWidth = parseFloat(document.getElementById("lineWidthInput").value);
+ ctx.strokeStyle = color;
+ ctx.lineWidth = lineWidth;
 
-        // Function to simulate the Music API methods
-        var Music = {
-            createPolySynth: function(synthName, options) {
-                return {
-                    playStopTone: function(note, duration, time) {
-                        console.log("Playing note:", note);
-                    }
-                };
-            }
-        };
+ ctx.beginPath();
+ for (var i = 0; i < numSamples; i++) {
+  var x = ((i / numSamples) * width + offsetX) * scaleFactor;
+  var y = ((1 - waveform[i]) * height) / 2;
+  if (i === 0) {
+   ctx.moveTo(x, y);
+  } else {
+   ctx.lineTo(x, y);
+  }
+ }
+ ctx.stroke();
+}
 
-        // Function to simulate the music.startTransport() method
-        function startTransport() {
-            setInterval(function() {
-                repeat(new Date().getTime());
-            }, 1000);
-        }
+function updateVisualization() {
+ if (!isPlaying) {
+  visualizeSineWave();
+ }
+}
 
-        // Start the application
-        OnStart();
-        startTransport();
-    </script>
+function zoomIn() {
+ scaleFactor *= 1.1; // Increase the scale factor
+ visualizeSineWave(); // Redraw the waveform
+}
+
+function zoomOut() {
+ scaleFactor /= 1.1; // Decrease the scale factor
+ visualizeSineWave(); // Redraw the waveform
+}
+
+var isDragging = false;
+var lastX = 0;
+var lastY = 0;
+
+document
+ .getElementById("waveformCanvas")
+ .addEventListener("mousedown", function (event) {
+  isDragging = true;
+  lastX = event.clientX;
+  lastY = event.clientY;
+  document.body.style.cursor = "grabbing";
+ });
+
+document.addEventListener("mousemove", function (event) {
+ if (isDragging) {
+  var deltaX = event.clientX - lastX;
+  var deltaY = event.clientY - lastY;
+  offsetX += deltaX;
+  offsetY += deltaY;
+  lastX = event.clientX;
+  lastY = event.clientY;
+  visualizeSineWave(); // Redraw the waveform
+ }
+});
+
+document.addEventListener("mouseup", function () {
+ isDragging = false;
+ document.body.style.cursor = "grab";
+});
+
+document
+ .getElementById("waveformCanvas")
+ .addEventListener("wheel", function (event) {
+  event.preventDefault();
+  var deltaY = event.deltaY;
+  if (deltaY < 0) {
+   zoomIn(); // Zoom in when scrolling up
+  } else {
+   zoomOut(); // Zoom out when scrolling down
+  }
+ });
+</script>
 </body>
 </html>
