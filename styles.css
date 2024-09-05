@@ -1,15 +1,17 @@
-/* Global Reset and Defaults */
+/* Global Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Body Styling */
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     padding: 20px;
     text-align: center;
+    transition: background-color 0.5s ease, color 0.5s ease; /* Smooth transition */
 }
 
 /* Horizontal Rule */
@@ -34,8 +36,6 @@ p {
     font-size: 18px;
 }
 
-/* Theme Styles */
-
 /* Default Theme (Light) */
 body.light-theme {
     background-color: #f4f4f4;
@@ -55,8 +55,6 @@ body.blue-theme {
 }
 
 /* Header and Main Content */
-
-/* Header (e.g., for the image logo or title) */
 header {
     margin-bottom: 20px;
 }
