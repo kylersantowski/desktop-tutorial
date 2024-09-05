@@ -55,6 +55,16 @@ body.light-theme a {
     color: #3498db;  /* Light blue */
 }
 
+body.light-theme .nav-column {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    color: #333;
+}
+
+body.light-theme .voucher-img {
+    border: 1px solid #ddd;
+}
+
 /* Dark Theme */
 body.dark-theme {
     background-color: #2c3e50;
@@ -65,6 +75,16 @@ body.dark-theme a {
     color: #e74c3c;  /* Reddish links */
 }
 
+body.dark-theme .nav-column {
+    background-color: #34495e;
+    border: 1px solid #2c3e50;
+    color: #ecf0f1;
+}
+
+body.dark-theme .voucher-img {
+    border: 1px solid #34495e;
+}
+
 /* Blue Theme */
 body.blue-theme {
     background-color: #3498db;
@@ -73,6 +93,16 @@ body.blue-theme {
 
 body.blue-theme a {
     color: #f39c12;  /* Orange links */
+}
+
+body.blue-theme .nav-column {
+    background-color: #2980b9;
+    border: 1px solid #3498db;
+    color: #ffffff;
+}
+
+body.blue-theme .voucher-img {
+    border: 1px solid #2980b9;
 }
 
 /* Header and Main Content */
@@ -103,17 +133,9 @@ h1 {
 }
 
 .nav-column {
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
     padding: 15px;
+    border-radius: 8px;
     text-align: center;
-}
-
-.nav-column h2 {
-    margin-bottom: 10px;
-    font-size: 20px;
-    color: #333;
 }
 
 /* Voucher Container */
