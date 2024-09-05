@@ -1,17 +1,13 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Get all elements with the 'dropdown' class
+  // Dropdown Menu Handling
   const dropdowns = document.querySelectorAll(".dropdown");
 
-  // Add click event listeners to each dropdown
   dropdowns.forEach((dropdown) => {
-      // Find the submenu within the dropdown
       const submenu = dropdown.querySelector(".submenu");
 
-      // Add a click event listener to the dropdown
       dropdown.addEventListener("click", function (event) {
-          event.stopPropagation(); // Prevent the click event from reaching the body
+          event.stopPropagation(); // Prevent click event from reaching the body
 
-          // Toggle the 'hidden' class to show/hide the submenu
           if (submenu) {
               submenu.classList.toggle("hidden");
           }
@@ -24,9 +20,30 @@ document.addEventListener("DOMContentLoaded", function () {
           }
       });
 
-      // Prevent the body click event from closing the dropdown
+      // Prevent click event from closing the dropdown
       dropdown.addEventListener("click", function (event) {
           event.stopPropagation();
       });
   });
+
+  // Theme Switching
+  function switchTheme(theme) {
+      document.body.classList.remove('light-theme', 'dark-theme', 'blue-theme');
+      
+      if (theme === '1') {
+          document.body.classList.add('light-theme');
+      } else if (theme === '2') {
+          document.body.classList.add('dark-theme');
+      } else if (theme === '3') {
+          document.body.classList.add('blue-theme');
+      }
+  }
+
+  const themeSlider = document.getElementById('theme-toggle');
+  themeSlider.addEventListener('input', function () {
+      switchTheme(this.value);
+  });
+
+  // Initialize with the default light theme
+  switchTheme('1');
 });
