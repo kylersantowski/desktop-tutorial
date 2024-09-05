@@ -11,19 +11,20 @@ body {
     line-height: 1.6;
     padding: 20px;
     text-align: center;
-    transition: background-color 0.5s ease, color 0.5s ease; /* Smooth transition */
+    transition: background-color 0.5s ease, color 0.5s ease, padding 0.5s ease, text-align 0.5s ease;
 }
 
 /* Horizontal Rule */
 hr {
     border: 2px solid blue;
+    margin-bottom: 20px;
 }
 
 /* Links */
 a {
-    color: #3498db;
     text-decoration: none;
     font-size: 18px;
+    transition: color 0.5s ease;
 }
 
 a:hover {
@@ -36,22 +37,42 @@ p {
     font-size: 18px;
 }
 
+/* Themes */
+
 /* Default Theme (Light) */
 body.light-theme {
     background-color: #f4f4f4;
     color: #333;
+    padding: 20px;
+    text-align: center;
+}
+
+body.light-theme a {
+    color: #3498db;  /* Light blue */
 }
 
 /* Dark Theme */
 body.dark-theme {
     background-color: #2c3e50;
     color: #ecf0f1;
+    padding: 50px;
+    text-align: left;
+}
+
+body.dark-theme a {
+    color: #e74c3c;  /* Reddish links */
 }
 
 /* Blue Theme */
 body.blue-theme {
     background-color: #3498db;
     color: #ffffff;
+    padding: 30px;
+    text-align: right;
+}
+
+body.blue-theme a {
+    color: #f39c12;  /* Orange links */
 }
 
 /* Header and Main Content */
@@ -61,7 +82,6 @@ header {
 
 /* Main Heading (h1) */
 h1 {
-    color: #2c3e50;
     margin-bottom: 20px;
 }
 
