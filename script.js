@@ -1,79 +1,81 @@
 // File: script.js
 
-// Function to add two numbers
+// Arithmetic Functions
 function add(a, b) {
-    return a + b;
+  return a + b;
 }
 
-// Function to subtract two numbers
 function subtract(a, b) {
-    return a - b;
+  return a - b;
 }
 
-// Function to multiply two numbers
 function multiply(a, b) {
-    return a * b;
+  return a * b;
 }
 
-// Function to divide two numbers
 function divide(a, b) {
-    if (b === 0) {
-        throw new Error("Division by zero");
-    }
-    return a / b;
+  if (b === 0) {
+    throw new Error("Division by zero");
+  }
+  return a / b;
 }
 
-// This is for the etch n sketch app
-// Variable to keep track of the number of steps
-var count = 0;
+// Etch-a-Sketch Functionality
+
+// Variable to keep track of the number of steps (if needed)
+let count = 0;
 
 // Initial position of the color selector
-var selectorPosition = { x: 0.5, y: 0.5 };
+let selectorPosition = { x: 0.5, y: 0.5 };
 
-// Function to select elements by ID
+// Object to store the state of arrow keys
+let arrowKeys = { left: false, right: false, up: false, down: false };
+
+// Array to store the history of color selector positions
+let selectorHistory = [];
+
+// Select elements by ID
 function getById(id) {
   return document.getElementById(id);
 }
 
-// Function called when the application starts
+// Start the application
 function OnStart() {
-  // Create info container
-  var infoContainer = document.createElement('div');
+  // Create the info container and canvas
+  const infoContainer = document.createElement('div');
   infoContainer.id = 'infoContainer';
   document.body.appendChild(infoContainer);
 
-  // Create color graph canvas
-  var colorGraph = document.createElement('canvas');
+  const colorGraph = document.createElement('canvas');
   colorGraph.id = 'colorGraph';
   colorGraph.width = window.innerWidth;
   colorGraph.height = window.innerHeight;
   infoContainer.appendChild(colorGraph);
 
-  // Call the function as if it's the cam_OnReady callback
+  // Simulate the camera readiness
   cam_OnReady();
 }
 
-// Function called when the camera is ready (simulated for canvas)
+// When camera (canvas) is ready
 function cam_OnReady() {
-  // Register event listener for arrow key movements
+  // Register key event listeners
   document.addEventListener('keydown', handleKeyPress);
+  document.addEventListener('keyup', handleKeyRelease);
 
-  // Periodically update the color graph
-  setInterval(updateColorGraph, 0.01);
+  // Use requestAnimationFrame for smooth updates
+  window.requestAnimationFrame(updateColorGraph);
 }
 
-// Function to update color graph and move color selector
+// Update the color graph and move the color selector
 function updateColorGraph() {
-  // Move the color selector within the canvas
-  moveColorSelector();
-
-  // Draw the color graph and color selector
-  drawColorGraph();
+  moveColorSelector();  // Handle movements
+  drawColorGraph();     // Redraw the canvas
+  window.requestAnimationFrame(updateColorGraph); // Continue updating
 }
 
-// Function to move the color selector based on arrow key presses
+// Move the color selector based on arrow key presses
 function moveColorSelector() {
-  const stepSize = 0.001;
+  const stepSize = 0.001;  // Adjust movement speed
   if (arrowKeys.left && selectorPosition.x > 0) {
     selectorPosition.x -= stepSize;
   }
@@ -88,152 +90,132 @@ function moveColorSelector() {
   }
 }
 
-// Object to store the state of arrow keys
-var arrowKeys = { left: false, right: false, up: false, down: false };
-
-// Function to handle arrow key press events
+// Handle key press events
 function handleKeyPress(event) {
   switch (event.key) {
-    case 'ArrowLeft':
-      arrowKeys.left = true;
-      break;
-    case 'ArrowRight':
-      arrowKeys.right = true;
-      break;
-    case 'ArrowUp':
-      arrowKeys.up = true;
-      break;
-    case 'ArrowDown':
-      arrowKeys.down = true;
-      break;
+    case 'ArrowLeft': arrowKeys.left = true; break;
+    case 'ArrowRight': arrowKeys.right = true; break;
+    case 'ArrowUp': arrowKeys.up = true; break;
+    case 'ArrowDown': arrowKeys.down = true; break;
   }
 }
 
-// Function to handle arrow key release events
-document.addEventListener('keyup', function (event) {
+// Handle key release events
+function handleKeyRelease(event) {
   switch (event.key) {
-    case 'ArrowLeft':
-      arrowKeys.left = false;
-      break;
-    case 'ArrowRight':
-      arrowKeys.right = false;
-      break;
-    case 'ArrowUp':
-      arrowKeys.up = false;
-      break;
-    case 'ArrowDown':
-      arrowKeys.down = false;
-      break;
+    case 'ArrowLeft': arrowKeys.left = false; break;
+    case 'ArrowRight': arrowKeys.right = false; break;
+    case 'ArrowUp': arrowKeys.up = false; break;
+    case 'ArrowDown': arrowKeys.down = false; break;
   }
-});
+}
 
-// Function to draw the color graph and color selector
+// Draw the color graph and selector
 function drawColorGraph() {
-  var colorGraph = getById('colorGraph');
-  var ctx = colorGraph.getContext('2d');
+  const colorGraph = getById('colorGraph');
+  const ctx = colorGraph.getContext('2d');
 
-  // Clear the canvas
+  // Clear canvas before each draw
   ctx.clearRect(0, 0, colorGraph.width, colorGraph.height);
 
-  // Draw color bars and labels
+  // Draw color bars and selector
   drawColorBars(ctx);
-
-  // Draw the color selector
   drawColorSelector(ctx);
 }
 
-// Function to draw color bars and labels
+// Draw color bars and labels
 function drawColorBars(ctx) {
-  var colors = [
-    { hex: '#FFFFFF', label: 'Red' },
-    { hex: '#FFFFFF', label: 'Green' },
-    { hex: '#FFFFFF', label: 'Blue' },
-    { hex: '#FFFFFF', label: 'Yellow' },
+  const colors = [
+    { hex: '#FF0000', label: 'Red' },
+    { hex: '#00FF00', label: 'Green' },
+    { hex: '#0000FF', label: 'Blue' },
+    { hex: '#FFFF00', label: 'Yellow' },
     { hex: '#FFFFFF', label: 'White' },
-    { hex: '#FFFFFF', label: 'Yellow' },
-    { hex: '#FFFFFF', label: 'Blue' },
-    { hex: '#FFFFFF', label: 'Green' },
-    { hex: '#FFFFFF', label: 'Red' },
-    // Add more colors as needed
   ];
 
-  var barWidth = colorGraph.width / colors.length;
-  for (var i = 0; i < colors.length; i++) {
-    var x = i * barWidth;
-    ctx.fillStyle = colors[i].hex;
+  const barWidth = colorGraph.width / colors.length;
+
+  // Draw each color bar
+  colors.forEach((color, i) => {
+    const x = i * barWidth;
+    ctx.fillStyle = color.hex;
     ctx.fillRect(x, 0, barWidth, colorGraph.height);
 
-    ctx.fillStyle = '#FFFFFF'; // White text
+    // Draw labels
+    ctx.fillStyle = '#FFFFFF';  // Text color
     ctx.font = '16px Arial';
-    ctx.fillText(colors[i].label, x + 5, colorGraph.height - 5);
-  }
+    ctx.fillText(color.label, x + 5, colorGraph.height - 5);
+  });
 }
 
-// Array to store the history of color selector positions
-var selectorHistory = [];
-
-// Function to draw the color selector and its trail
+// Draw the color selector and trail
 function drawColorSelector(ctx) {
-  var selectorX = selectorPosition.x * colorGraph.width;
-  var selectorY = selectorPosition.y * colorGraph.height;
+  const colorGraph = getById('colorGraph');
+  const selectorX = selectorPosition.x * colorGraph.width;
+  const selectorY = selectorPosition.y * colorGraph.height;
 
-  // Save the current position to the history array
+  // Save the current position to the history
   selectorHistory.push({ x: selectorX, y: selectorY });
 
-  ctx.fillStyle = '#000000'; // black color for selector
+  // Draw the selector
+  ctx.fillStyle = '#000000';  // Black for the selector
   ctx.beginPath();
   ctx.arc(selectorX, selectorY, 5, 0, 2 * Math.PI);
   ctx.fill();
 
-  // Draw the trail or mark
-  ctx.strokeStyle = '#000000'; // white color for the trail
-  ctx.lineWidth = 5;
+  // Draw the trail (path)
+  ctx.strokeStyle = '#000000';  // Black for the trail
+  ctx.lineWidth = 1;
   ctx.beginPath();
-  for (var i = 0; i < selectorHistory.length; i++) {
+  for (let i = 0; i < selectorHistory.length; i++) {
     ctx.lineTo(selectorHistory[i].x, selectorHistory[i].y);
   }
   ctx.stroke();
 }
-// This is for the etch n sketch
 
-/*
-> <!--Add a space to see better-->
-*/
+// Animation and Cubic Bezier Debug
 
+let elem = document.querySelector('i');  // Select the first 'i' element
+let start;  // Variable to store the start time of animation
 
-// This is to draw a cubic bezier
-// Select the first 'i' element in the document
-let elem = document.querySelector('i');
-
-// Variable to store the start time of the animation
-let start;
-
-// Function to continuously debug and update the animation
+// Debug animation and cubic bezier curve
 function debug(timestamp) {
-  // If start time is undefined, set it to the current timestamp
-  if (start === undefined)
-    start = timestamp;
-
-  // Calculate the elapsed time since the animation started
+  if (!start) start = timestamp;
   const elapsed = timestamp - start;
 
-  // Get the position and size of the 'i' element
-  let rect = elem.getBoundingClientRect();
+  const rect = elem.getBoundingClientRect();
+  document.body.insertAdjacentHTML(
+    "beforeBegin",
+    `<d style="top:${rect.y + rect.height / 2}px; left:${rect.x + rect.width / 2}px;"></d>`
+  );
 
-  // Insert a 'd' element representing the debug point at the center of the 'i' element
-  document.body.insertAdjacentHTML("beforeBegin",'<d style="top:'+(rect.y + rect.height/2)+'px;left:'+(rect.x + rect.width/2)+'px;"></d>');
-
-  // Call debug function again to continue the animation
-  window.requestAnimationFrame(debug);
+  window.requestAnimationFrame(debug);  // Continue the animation
 }
 
-// Add a click event listener to a button
-document.querySelector("button").addEventListener("click",function() {
-  // Add 'start' class to the 'i' element to trigger animation
+// Add click listener to button for animation start
+document.querySelector("button").addEventListener("click", function() {
   elem.classList.add("start");
-  
-  // Start the animation by calling the debug function
-  window.requestAnimationFrame(debug);
+  window.requestAnimationFrame(debug);  // Start the animation
 });
 
-// This is to draw a cubic bezier
+// Theme Switching Functionality
+
+function switchTheme(theme) {
+  document.body.classList.remove('light-theme', 'dark-theme', 'blue-theme');
+
+  if (theme === '1') {
+    document.body.classList.add('light-theme');
+  } else if (theme === '2') {
+    document.body.classList.add('dark-theme');
+  } else if (theme === '3') {
+    document.body.classList.add('blue-theme');
+  }
+}
+
+// Event listener for theme toggle (slider)
+getById('theme-toggle').addEventListener('input', function () {
+  switchTheme(this.value);
+});
+
+// Initialize with the default light theme
+switchTheme('1');
