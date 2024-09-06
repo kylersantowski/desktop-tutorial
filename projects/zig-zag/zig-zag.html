@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interleaving Zig-Zag Patterns</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            position: relative; /* Allow positioning of child elements */
+            font-family: Arial, sans-serif; /* Better readability */
+        }
+
+        svg {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .path {
+            stroke-width: 5;
+            fill: hsla(0deg, 0%, 0%, 0.3);
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            transition: stroke-dashoffset 0.5s alternate;
+        }
+
+        .path1 {
+            stroke: #007BFF;
+            animation: moveForward 6s linear infinite;
+        }
+
+        .path2 {
+            stroke: #FF5733;
+            animation: moveBackward 6s linear infinite;
+        }
+
+        @keyframes moveForward {
+            0% {
+                stroke-dashoffset: var(--path-length);
+            }
+            100% {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        @keyframes moveBackward {
+            0% {
+                stroke-dashoffset: 0;
+            }
+            100% {
+                stroke-dashoffset: var(--path-length);
+            }
+        }
+
+        /* Styling for the link */
+        a {
+            position: absolute;
+            bottom: 20px;
+            font-size: 16px;
+            color: #333;
+            text-decoration: none;
+            background-color: #e0e0e0;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.5s; /* Smooth transition on hover */
+        }
+
+        a:hover {
+            background-color: #c0c0c0;
+        }
+    </style>
+</head>
+<body>    
+    <!-- SVG container where the paths will be drawn -->
+    <svg id="svg" viewBox="0 0 1000 500"></svg>
+    
+    <!-- Link to the GitHub Pages URL -->
+    <a href="https://github.com/kylersantowski/" target="_blank">Visit My GitHub Pages</a>
+
+    <script>
+        const svg = document.getElementById('svg');
+        const width = 1000;
+        const height = 500;
+        const step = 100;
+        const amplitude = 100;
+
+        function createZigZagPath(startY, direction, color, reverse = false) {
+            let d = reverse ? `M${width},${startY}` : `M0,${startY}`;
+
+            for (let x = (reverse ? width : 0); (reverse ? x >= 0 : x <= width); x += (reverse ? -step : step)) {
+                const y = startY + (direction * ((Math.abs(x / step) % 2 === 0 ? amplitude : -amplitude)));
+                d += ` L${x},${y}`;
+            }
+
+            d += ` L${reverse ? 0 : width},${startY}`;
+
+            const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+            path.setAttribute('d', d);
+            path.setAttribute('class', `path ${color}`);
+            
+            const length = path.getTotalLength();
+            path.setAttribute('stroke-dasharray', length);
+            path.setAttribute('stroke-dashoffset', length);
+            path.style.setProperty('--path-length', length);
+
+            svg.appendChild(path);
+        }
+
+        function createInterweavePattern() {
+            createZigZagPath(250, -1, 'path1');
+            createZigZagPath(250, 1, 'path2', true);
+        }
+
+        createInterweavePattern();
+    </script>
+</body>
+</html>
