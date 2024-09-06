@@ -2,10 +2,11 @@ const myImage = document.querySelector("img");
 
 myImage.onclick = () => {
   const mySrc = myImage.getAttribute("src");
-  if (mySrc === '../_0b2a8250-07ac-41ca-8a85-4a136ffbecbf.jpeg') {
-    myImage.setAttribute("src"='../_0b2a8250-07ac-41ca-8a85-4a136ffbecbf.jpeg');
+  // Toggle between the two relative paths
+  if (mySrc === 'projects/test-site/test-site.jpg') {
+    myImage.setAttribute("src", 'projects/test-site/test-site.jpg');
   } else {
-    myImage.setAttribute("src", "images/firefox-icon.png");
+    myImage.setAttribute("src", 'projects/test-site/test-site.jpg');
   }
 };
 
@@ -17,11 +18,10 @@ function setUserName() {
   localStorage.setItem("name", myName);
   myHeading.textContent = `Mozilla is cool, ${myName}`;
 }
+
 if (!localStorage.getItem("name")) {
   setUserName();
-} 
-
-else {
+} else {
   const storedName = localStorage.getItem("name");
   myHeading.textContent = `Mozilla is cool, ${storedName}`;
 }
