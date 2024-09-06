@@ -1,93 +1,42 @@
-/* 🐙 This is for the the etch n sketch app 🎨 */
-/* Resetting default body styles */
+/* Reset body styles */
 body {
-  margin: 0; /* Remove default margin */
-  padding: 0; /* Remove default padding */
-  overflow: hidden; /* Hide any overflowing content */
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 }
 
 /* Styling for the container of information */
 #infoContainer {
-  position: absolute; /* Position the container relative to the nearest positioned ancestor */
-  top: 0; /* Align the container to the top of the viewport */
-  right: 0; /* Align the container to the right side of the viewport */
-  padding: 10px; /* Add padding around the content inside the container */
-  margin: 10px; /* Add margin around the container */
-  background-color: #f0f0f0; /* Set background color for the container */
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #f0f0f0;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 10;
 }
 
-/* Styling for the color graph canvas */
-#colorGraph {
-  width: 100vw; /* Set the width of the canvas to 100% of the viewport width */
-  height: 100vh; /* Set the height of the canvas to 100% of the viewport height */
-  margin: 5px; /* Add margin around the canvas */
-}
-/* 🐱‍💻 This is for the the etch n sketch app 🎨 */
-
-// 🖊️ This is to draw a cubic bezier
-/* Styling for the 'i' element */
-i {
-  position: fixed; /* Fixed positioning */
-  width: 1px; /* Set width */
-  height: 1px; /* Set height */
-  border-radius: 50%; /* Rounded corners to create a circle */
-  border: 1px solid black; /* Border */
-  background: radial-gradient(at 50% 50%, #0000, #000a) red; /* Radial gradient background */
-  left: var(--x); /* Positioning using custom property --x */
-  top: var(--y); /* Positioning using custom property --y */
-}
-
-/* Animation when 'start' class is added */
-i.start {
-  animation: x 1s, y 2.99792458s; /* Apply two animations: x and y */
-  animation-timing-function: cubic-bezier(0.0001, -400, 10, 800); /* Animation timing function */
-  animation-iteration-count: infinite; /* Infinite animation */
-}
-
-/* Keyframes for horizontal movement */
-@keyframes x {
-  to { left: calc(var(--x) + 2px); } /* Move 2px to the right */
-}
-
-/* Keyframes for vertical movement */
-@keyframes y {
-  to { top: calc(var(--y) + 2px); } /* Move 2px down */
-}
-
-/* Styling for the 'd' element */
-d {
-  position: fixed; /* Fixed positioning */
-  height: 100px; /* Set height */
-  width: 1px; /* Set width */
-  background: #222; /* Background color */
-  border-radius: 50%; /* Rounded corners to create a circle */
-  
-  /* Animation for rotation */
-  animation: twist 1s alternate infinite; /* Apply rotation animation */
-}
-
-/* Keyframes for rotation */
-@keyframes twist {
-  25% {
-    transform: rotateX(-360deg) rotateY(-360deg) skew(-360deg); /* Rotate at 25% */
-  }
-  75% {
-    transform: rotateX(360deg) rotateY(360deg) skew(360deg); /* Rotate at 75% */
-  }
-}
-
-/* Styling for the button */
+/* Styling for buttons */
 button {
-  border: none; /* Remove border */
-  border-radius: 10px; /* Rounded corners */
-  padding: 20px 20px; /* Padding */
-  cursor: pointer; /* Cursor type */
-  position: fixed; /* Fixed positioning */
-  top: 0px; /* Align to the top */
-  right: 0px; /* Align to the right */
-  font-family: sans-serif; /* Font family */
-  font-size: 20px; /* Font size */
-  background: #3d3d3d; /* Background color */
-  color: #fff; /* Text color */
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+  background: #3d3d3d;
+  color: #fff;
+  font-size: 16px;
+  margin-right: 10px;
 }
-// 🖊️ This is to draw a cubic bezier
+
+button:active {
+  background: #555;
+}
+
+/* Fullscreen canvas */
+canvas {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
