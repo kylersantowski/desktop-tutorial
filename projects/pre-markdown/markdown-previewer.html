@@ -8,6 +8,9 @@
   <!-- Include the marked library -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/2.0.3/marked.min.js"></script>
   
+  <!-- Include DOMPurify library for sanitization -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.8/purify.min.js"></script>
+  
   <!-- Link to your CSS file -->
   <link rel="stylesheet" href="markdown-previewer.css">
   
@@ -16,7 +19,7 @@
 </head>
 <body>
   <div class="editor">
-    <textarea id="editor" oninput="updatePreview()">
+    <textarea id="editor">
 # Heading 1
       
 ## Subheading
@@ -24,6 +27,7 @@
 [link](https://heartofstoneclothing.com)
       
 `Inline code`
+
 ```
 function example() {
   console.log("Hello, World!");
