@@ -149,20 +149,36 @@ h1 {
 
 /* Voucher Item */
 .voucher-item {
-    flex: 1 1 calc(33.333% - 20px);
-    box-sizing: border-box;
     text-align: center;
     margin-bottom: 20px;
 }
 
 /* Voucher Images */
 .voucher-img {
-    width: 100%;
-    height: auto;
     border-radius: 8px;
     transition: transform 0.3s ease;
 }
 
+/* Specific Styles for Voucher Items */
+.voucher-item img {
+    /* Apply general styles for all voucher images */
+    width: auto;
+    height: auto;
+}
+
+/* Voucher with 200x400px size */
+.voucher-img.voucher-200x400 {
+    width: 100px;
+    height: 100px;
+}
+
+/* Voucher with 400x400px size */
+.voucher-img.voucher-400x400 {
+    width: 100px;
+    height: 100px;
+}
+
+/* Adjustments for Hover Effects */
 .voucher-img:hover {
     transform: scale(1.05);
 }

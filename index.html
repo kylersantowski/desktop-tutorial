@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Main Page</title>
+    <title>desktop-tutorial</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body class="light-theme">
     <div class="content-wrapper">
         <header>
-            <img src="https://raw.githubusercontent.com/kylersantowski/desktop-tutorial/main/tshirt_design.png" height="52" width="52" alt="T-Shirt Design">
+            <img src="https://raw.githubusercontent.com/kylersantowski/desktop-tutorial/main/tshirt_design.png"
+                height="52" width="52" alt="T-Shirt Design">
             <div class="theme-switcher">
-                <label for="theme-toggle">Theme Switcher</label>
+                <label for="theme-toggle"></label>
                 <input type="range" id="theme-toggle" min="1" max="3" value="1">
             </div>
         </header>
@@ -19,74 +22,34 @@
         <main>
             <h1>Welcome to my project!</h1>
 
-            <!-- Complex Navigation Menu -->
-            <nav>
-                <ul class="navigation-menu">
-                    <li class="dropdown">
-                        <a href="#">Math Helpers</a>
-                        <ul class="submenu">
-                            <li><a href="projects/math-recipe/maths.html">Math Equation Solver Recipe</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#">Music & Creativity</a>
-                        <ul class="submenu">
-                            <li><a href="projects/tiles/tiles.html">Tiles: A Music Composer</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#">Activities</a>
-                        <ul class="submenu">
-                            <li><a href="projects/activities/activities.html">Online Learning Index</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#">Fun Stuff</a>
-                        <ul class="submenu">
-                            <li><a href="projects/yo-momma/index.html">Learn more about yo-momma</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#">Bento-Box</a>
-                        <ul class="submenu">
-                            <li><a href="projects/bento-box/bento-box.html">What is bento-box styling</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#">Etch-Sketch</a>
-                        <ul class="submenu">
-                            <li><a href="projects/etch-sketch/etch.html">Sketch your favorite drawing</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </nav>
-
-            <!-- Voucher Images -->
-            <div class="voucher-container">
-                <div class="voucher-item">
-                    <a href="https://buyvoucher.ott-mobile.com/?ag=1555" target="_blank" title="Buy Voucher 1">
-                        <img src="images/OTT-Affilliate-Image 1.png" alt="Voucher 1" class="voucher-img">
-                    </a>
-                </div>
-                <div class="voucher-item">
-                    <a href="https://buyvoucher.ott-mobile.com/?ag=1555" target="_blank" title="Buy Voucher 2">
-                        <img src="images/OTT-Affilliate-Image 2.png" alt="Voucher 2" class="voucher-img">
-                    </a>
-                </div>
-                <div class="voucher-item">
-                    <a href="https://buyvoucher.ott-mobile.com/?ag=1555" target="_blank" title="Buy QR Voucher">
-                        <img src="images/OTT-Affilliate-QR.png" alt="QR Voucher" class="voucher-img">
-                    </a>
-                </div>
-            </div>
+            <!-- Placeholder for the dynamic navigation -->
+            <div id="navigation-container"></div>
         </main>
     </div>
 
     <footer>
-        <!-- Footer content, if any -->
+        <!-- Voucher Images -->
+        <div class="voucher-container">
+            <div class="voucher-item">
+                <a href="https://buyvoucher.ott-mobile.com/?ag=1555" target="_blank" title="Buy Voucher 1">
+                    <img src="images/OTT-Affilliate-Image 1.png" alt="Voucher 1" class="voucher-img voucher-200x400">
+                </a>
+            </div>
+            <div class="voucher-item">
+                <a href="https://buyvoucher.ott-mobile.com/?ag=1555" target="_blank" title="Buy Voucher 2">
+                    <img src="images/OTT-Affilliate-Image 2.png" alt="Voucher 2" class="voucher-img voucher-200x400">
+                </a>
+            </div>
+            <div class="voucher-item">
+                <a href="https://buyvoucher.ott-mobile.com/?ag=1555" target="_blank" title="Buy QR Voucher">
+                    <img src="images/OTT-Affilliate-QR.png" alt="QR Voucher" class="voucher-img voucher-400x400">
+                </a>
+            </div>
+        </div>
     </footer>
 
-    <!-- Link to JavaScript file -->
+    <!-- Scripts -->
     <script src="script.js"></script>
 </body>
+
 </html>
