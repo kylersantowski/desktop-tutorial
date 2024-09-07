@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, minimum-scale=0.5, user-scalable=yes, viewport-fit=cover">
+    <title>Directory Display with Custom Layout</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+            overflow-x: scroll; /* Ensure page scrolling */
+	    overflow-y: scroll;
+        }
+
+        .directory-container {
+            display: flex;
+            flex-wrap: wrap; /* Allow wrapping to the next line */
+            gap: 20px; /* Space between directories */
+        }
+
+        .directory {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            overflow: hidden; /* Hide overflow to avoid showing scrollbars */
+        }
+
+        /* First row */
+        .directory-1 {
+            width: 32%; /* Width from 1-33% */
+            margin-left: 0; /* Align to the left */
+        }
+
+        .directory-3 {
+            width: 32%; /* Width from 67-99% */
+            margin-left: auto; /* Align to the right */
+        }
+
+        /* Second row */
+        .directory-2 {
+            width: 64%; /* Centered directory between 34-66% */
+            margin: 0 auto; /* Center align */
+        }
+
+        .directory h2 {
+            margin: 0 0 10px;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .directory iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+            border-radius: 5px;
+            margin-top: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            overflow: hidden; /* Hide the scrollbars inside the iframe */
+        }
+
+        /* Hide scrollbars in iframes */
+        iframe::-webkit-scrollbar {
+            display: none;
+        }
+
+        iframe {
+            -ms-overflow-style: none;  /* Internet Explorer 10+ */
+            scrollbar-width: none;  /* Firefox */
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .directory-1,
+            .directory-2,
+            .directory-3 {
+                width: 100%; /* Stack all directories on small screens */
+                margin: 0 0 20px 0; /* Add margin at the bottom */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="directory-container">
+        <div class="directory directory-1">
+            <h2>Directory 1</h2>
+            <ul>
+                <li>File 1</li>
+                <li>File 2</li>
+                <li>File 3</li>
+            </ul>
+            <iframe src="https://kylersantowski.github.io/desktop-tutorial/"></iframe>
+        </div>
+
+        <div class="directory directory-3">
+            <h2>Directory 3</h2>
+            <ul>
+                <li>File 1</li>
+                <li>File 2</li>
+                <li>File 3</li>
+            </ul>
+            <iframe src="https://www.example.com"></iframe>
+        </div>
+
+        <div class="directory directory-2">
+            <h2>Impossible Shapes</h2>
+            <iframe src="https://kylersantowski.github.io/pseudocode/"></iframe>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kuberlink</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f9fc;
+            color: #333;
+        }
+
+        .navbar {
+            display: flex;
+            background-color: #007BFF;
+            padding: 15px;
+            justify-content: space-around;
+            color: white;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .navbar a:hover {
+            background-color: #0056b3;
+            border-radius: 5px;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        .section {
+            display: none;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        .resource-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .resource-list li {
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <a onclick="showSection('nodes')">Nodes</a>
+        <a onclick="showSection('pods')">Pods</a>
+        <a onclick="showSection('services')">Services</a>
+    </div>
+
+    <div class="container">
+        <div id="nodes" class="section active">
+            <h2>Nodes</h2>
+            <ul class="resource-list" id="nodes-list">
+                <!-- Nodes will be populated here -->
+            </ul>
+        </div>
+
+        <div id="pods" class="section">
+            <h2>Pods</h2>
+            <ul class="resource-list" id="pods-list">
+                <!-- Pods will be populated here -->
+            </ul>
+        </div>
+
+        <div id="services" class="section">
+            <h2>Services</h2>
+            <ul class="resource-list" id="services-list">
+                <!-- Services will be populated here -->
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Mock Data
+        const nodes = [
+            { name: 'node-1', status: 'Ready', version: 'v1.21.1' },
+            { name: 'node-2', status: 'Ready', version: 'v1.21.1' }
+        ];
+
+        const pods = [
+            { name: 'pod-frontend', namespace: 'default', status: 'Running' },
+            { name: 'pod-backend', namespace: 'default', status: 'Running' }
+        ];
+
+        const services = [
+            { name: 'service-frontend', type: 'LoadBalancer', clusterIP: '10.96.0.1' },
+            { name: 'service-backend', type: 'ClusterIP', clusterIP: '10.96.0.2' }
+        ];
+
+        // Populate the UI with mock data
+        function populateList(id, data) {
+            const list = document.getElementById(id);
+            data.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = `${Object.values(item).join(' | ')}`;
+                list.appendChild(li);
+            });
+        }
+
+        // Initial population
+        populateList('nodes-list', nodes);
+        populateList('pods-list', pods);
+        populateList('services-list', services);
+
+        // Function to toggle between sections
+        function showSection(sectionId) {
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(sectionId).classList.add('active');
+        }
+    </script>
+
+</body>
+</html>

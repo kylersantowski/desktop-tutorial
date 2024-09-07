@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polka Dot Spiral with Cascading Color Change</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            margin: 0;
+        }
+        .venn-diagram {
+            position: relative;
+            width: 800px; /* Increased width for more circles */
+            height: 800px; /* Increased height for more circles */
+        }
+        .circle {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 5px solid #000; /* Polka dot border color */
+            background-color: rgba(255, 0, 0, 0.5); /* Initial color */
+            opacity: 0.7;
+        }
+        @keyframes colorChange {
+            0% { background-color: rgba(255, 0, 0, 0.5); }
+            25% { background-color: rgba(0, 255, 0, 0.5); }
+            50% { background-color: rgba(0, 0, 255, 0.5); }
+            75% { background-color: rgba(255, 255, 0, 0.5); }
+            100% { background-color: rgba(255, 0, 0, 0.5); }
+        }
+    </style>
+</head>
+<body>
+    <div class="venn-diagram" id="vennDiagram"></div>
+    
+    <script>
+        const container = document.querySelector('.venn-diagram');
+        const containerWidth = container.clientWidth;
+        const containerHeight = container.clientHeight;
+
+        const numCircles = 100;  // Increased number of circles for more triggers
+        const centerX = containerWidth / 2; // Center of the diagram (half of the container width)
+        const centerY = containerHeight / 2; // Center of the diagram (half of the container height)
+        const spiralFactor = 25; // Controls the spacing between circles
+        const rotationFactor = 137.5; // The angle in degrees for each step (Golden Angle)
+
+        const vennDiagram = document.getElementById('vennDiagram');
+
+        let circles = [];
+
+        for (let i = 0; i < numCircles; i++) {
+            const angle = i * rotationFactor * (Math.PI / 180); // Convert angle to radians
+            const radius = spiralFactor * Math.sqrt(i); // Spiral radius
+
+            const x = centerX + radius * Math.cos(angle) - 1; // Subtract half the circle's width for centering
+            const y = centerY + radius * Math.sin(angle) - 1; // Subtract half the circle's height for centering
+
+            const circle = document.createElement('div');
+            circle.className = 'circle';
+            circle.style.left = `${x}px`;
+            circle.style.top = `${y}px`;
+
+            vennDiagram.appendChild(circle);
+            circles.push(circle);
+        }
+
+        // Function to start the color change sequence
+        function startColorChange(index, depth = 1) {
+            if (index >= circles.length || depth === 0) return;
+
+            const circle = circles[index];
+            circle.style.animation = 'colorChange 2s forwards';
+
+            // Determine how many subsequent circles to trigger
+            const nextTrigger = (2 * depth) + 1;
+            let nextIndex = index + 1;
+
+            for (let i = 0; i < nextTrigger; i++) {
+                if (nextIndex >= circles.length) break;
+                setTimeout(() => startColorChange(nextIndex, depth + 1), 2000); // Trigger subsequent circles
+                nextIndex++;
+            }
+        }
+
+        // Start the color change sequence
+        startColorChange(0);
+    </script>
+</body>
+</html>

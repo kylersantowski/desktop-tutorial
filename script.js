@@ -1,22 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Dynamic Navigation Loading
-    fetch('navigation/navigation.html')
-        .then(response => response.text())
-        .then(html => {
-            document.getElementById('navigation-container').innerHTML = html;
-
-            // Load navigation CSS and JS after the navigation is loaded
-            const navCSS = document.createElement('link');
-            navCSS.rel = 'stylesheet';
-            navCSS.href = 'navigation/navigation.css';
-            document.head.appendChild(navCSS);
-
-            const navJS = document.createElement('script');
-            navJS.src = 'navigation/navigation.js';
-            document.body.appendChild(navJS);
-        })
-        .catch(error => console.error('Error loading navigation:', error));
-
     // Dropdown Menu Handling
     const dropdowns = document.querySelectorAll(".dropdown");
 
