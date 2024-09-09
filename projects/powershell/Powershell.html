@@ -1,0 +1,51 @@
+```powershell
+Add-Type -AssemblyName System.Windows.Forms
+
+# Create a form
+$form = New-Object System.Windows.Forms.Form
+$form.Text = "Fractal Art Generator"
+$form.Size = New-Object System.Drawing.Size(400, 400)
+$form.StartPosition = "CenterScreen"
+
+# Create a button to generate fractal art
+$btnGenerate = New-Object System.Windows.Forms.Button
+$btnGenerate.Location = New-Object System.Drawing.Point(50, 50)
+$btnGenerate.Size = New-Object System.Drawing.Size(100, 50)
+$btnGenerate.Text = "Generate Fractal"
+$btnGenerate.Add_Click({
+    # Place your fractal generation logic here
+    # For simplicity, let's just display a message box
+    [System.Windows.Forms.MessageBox]::Show("Fractal art generated!")
+})
+$form.Controls.Add($btnGenerate)
+
+# Create a label for instructions
+$lblInstructions = New-Object System.Windows.Forms.Label
+$lblInstructions.Location = New-Object System.Drawing.Point(50, 100)
+$lblInstructions.Size = New-Object System.Drawing.Size(400, 50)
+$lblInstructions.Text = "Click the button to generate fractal art"
+$form.Controls.Add($lblInstructions)
+
+# Display the form
+$form.ShowDialog() | Out-Null
+```
+
+```powershell
+# Start
+Write-Host "Input a number n"
+$n = Read-Host "Enter a number"
+
+# Set sum to 0
+$sum = 0
+
+# For each number i from 1 to n
+for ($i = 1; $i -le $n; $i++) {
+    # Add i to sum
+    $sum += $i
+}
+
+# Output sum
+Write-Host "The sum of numbers from 1 to $n is: $sum"
+```
+
+```powershell

@@ -1,0 +1,14 @@
+ellipse {
+    animation: turn 3s infinite alternate;
+    transform: scale(0.5);
+}
+@keyframes turn {
+    50% {
+        transform: rotate(0deg) scale(0.5);
+        transform-origin: 50px 150px;
+    }
+    100% {
+        transform: rotate(180deg) scale(0.25);
+        transform-origin: 150px 50px;
+    }
+}

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List App</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .task-checkbox {
+            margin-right: 10px;
+        }
+
+        #new-task {
+            margin-top: 10px;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>To-Do List</h1>
+    <ul id="todo-list">
+        <!-- To-do items will be dynamically added here using JavaScript -->
+    </ul>
+    <div id="new-task">
+        <input type="text" id="task-input" placeholder="New Task">
+        <button onclick="addNewTask()">Add Task</button>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const todoList = document.getElementById('todo-list');
+
+            // Sample data for initial rendering
+            const initialTasks = [
+                { text: 'Task 1', completed: false },
+                { text: 'Task 2', completed: true },
+                { text: 'Task 3', completed: false }
+            ];
+
+            // Function to render tasks
+            function renderTasks() {
+                todoList.innerHTML = '';
+                initialTasks.forEach(task => {
+                    const li = document.createElement('li');
+                    const checkbox = document.createElement('input');
+                    checkbox.type = 'checkbox';
+                    checkbox.className = 'task-checkbox';
+                    checkbox.checked = task.completed;
+
+                    const taskText = document.createElement('span');
+                    taskText.textContent = task.text;
+
+                    li.appendChild(checkbox);
+                    li.appendChild(taskText);
+                    todoList.appendChild(li);
+                });
+            }
+
+            // Function to add a new task
+            function addNewTask() {
+                const taskInput = document.getElementById('task-input');
+                const newTaskText = taskInput.value.trim();
+
+                if (newTaskText !== '') {
+                    const li = document.createElement('li');
+                    const checkbox = document.createElement('input');
+                    checkbox.type = 'checkbox';
+                    checkbox.className = 'task-checkbox';
+
+                    const taskText = document.createElement('span');
+                    taskText.textContent = newTaskText;
+
+                    li.appendChild(checkbox);
+                    li.appendChild(taskText);
+                    todoList.appendChild(li);
+
+                    // Clear the input field after adding the task
+                    taskInput.value = '';
+                }
+            }
+
+            // Initial render
+            renderTasks();
+        });
+    </script>
+</body>
+</html>

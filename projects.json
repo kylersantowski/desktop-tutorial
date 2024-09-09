@@ -1,0 +1,269 @@
+{
+    "projects": [
+        {
+            "category": "Math & Algorithms",
+            "projects": [
+                {
+                    "name": "Math Equation Solver Recipe",
+                    "link": "projects/math-recipe/maths.html",
+                    "description": "Solve mathematical equations with this interactive recipe."
+                },
+                {
+                    "name": "Interactive Calculator",
+                    "link": "projects/calculator/calculate.html",
+                    "description": "An interactive calculator for various calculations."
+                },
+                {
+                    "name": "Balance Sheet",
+                    "link": "projects/balance-sheet/balance-sheet.html",
+                    "description": "Create and manage balance sheets effectively."
+                },
+                {
+                    "name": "Koch Snowflake",
+                    "link": "projects/koch/koch.html",
+                    "description": "Visualize the Koch Snowflake fractal."
+                },
+                {
+                    "name": "Mandelbrot Set",
+                    "link": "projects/mandelbrot/Mandelbrot.html",
+                    "description": "Explore the Mandelbrot Set fractal."
+                },
+                {
+                    "name": "Lindenmayer System",
+                    "link": "projects/lindenmayer/lindenmayer.html",
+                    "description": "Understand the Lindenmayer System with visual examples."
+                }
+            ]
+        },
+        {
+            "category": "Music & Sound",
+            "projects": [
+                {
+                    "name": "Tiles: A Music Composer",
+                    "link": "projects/tiles/tiles.html",
+                    "description": "Compose music using the Tiles interface."
+                },
+                {
+                    "name": "Virtual Piano",
+                    "link": "projects/piano/piano.html",
+                    "description": "Play piano virtually with this interactive tool."
+                }
+            ]
+        },
+        {
+            "category": "Visual Art & Creativity",
+            "projects": [
+                {
+                    "name": "Sketch Your Favorite Drawing",
+                    "link": "projects/etch-sketch/etch.html",
+                    "description": "Use this tool to sketch and save your drawings."
+                },
+                {
+                    "name": "SVG Art Gallery",
+                    "link": "projects/svgs/3d-svg.html",
+                    "description": "A gallery showcasing SVG art."
+                },
+                {
+                    "name": "Cat Painting",
+                    "link": "projects/cat-painting/cat-painting.html",
+                    "description": "Create and view cat paintings."
+                },
+                {
+                    "name": "Rothko Painting",
+                    "link": "projects/rothko-painting/rothko-painting.html",
+                    "description": "Interactive Rothko painting example."
+                },
+                {
+                    "name": "Ferris Wheel",
+                    "link": "projects/ferris-wheel/ferris-wheel.html",
+                    "description": "An animated Ferris wheel design."
+                },
+                {
+                    "name": "Shapes Art",
+                    "link": "projects/shapes/Shapes.html",
+                    "description": "Explore art made from various shapes."
+                }
+            ]
+        },
+        {
+            "category": "Web Development",
+            "projects": [
+                {
+                    "name": "Bootstrap Basics",
+                    "link": "projects/bootstrapping/index.html",
+                    "description": "Learn the fundamentals of Bootstrap."
+                },
+                {
+                    "name": "Custom Buttons Gallery",
+                    "link": "projects/buttons/buttons.html",
+                    "description": "A gallery of custom button designs."
+                },
+                {
+                    "name": "Directory Display Tool",
+                    "link": "projects/directory-display/index.html",
+                    "description": "Display and manage directories."
+                },
+                {
+                    "name": "Iframe Examples",
+                    "link": "projects/i-frames/iframe.html",
+                    "description": "Examples of using iframes in web pages."
+                },
+                {
+                    "name": "Interactive Nodes",
+                    "link": "projects/nodes/nodes.html",
+                    "description": "Interactive nodes visualization."
+                },
+                {
+                    "name": "Interactive Quiz",
+                    "link": "projects/quiz/quiz.html",
+                    "description": "Test your knowledge with this interactive quiz."
+                },
+                {
+                    "name": "Website Layout",
+                    "link": "projects/layout/layout.html",
+                    "description": "Design and test website layouts."
+                },
+                {
+                    "name": "Navigation Design",
+                    "link": "projects/navigation/Navigation.html",
+                    "description": "Explore different navigation designs."
+                },
+                {
+                    "name": "Basic Coding Examples",
+                    "link": "projects/coding/coding.html",
+                    "description": "Examples of basic coding techniques."
+                },
+                {
+                    "name": "Technical Documentation Page",
+                    "link": "projects/technical-documentation/technical-documentation-page.html",
+                    "description": "A template for technical documentation."
+                }
+            ]
+        },
+        {
+            "category": "Interactive Games",
+            "projects": [
+                {
+                    "name": "Jumping Animations",
+                    "link": "projects/jump/jump.html",
+                    "description": "Explore animations of jumping actions."
+                },
+                {
+                    "name": "Stick Hero Game",
+                    "link": "projects/stick-hero",
+                    "description": "Play the Stick Hero game."
+                },
+                {
+                    "name": "Penguin Game",
+                    "link": "projects/penguin/penguin.html",
+                    "description": "An interactive game featuring penguins."
+                }
+            ]
+        },
+        {
+            "category": "Storytelling & Creativity",
+            "projects": [
+                {
+                    "name": "Interactive Storyteller",
+                    "link": "projects/storyteller/storyteller.html",
+                    "description": "Create and interact with stories."
+                },
+                {
+                    "name": "Tribute Page",
+                    "link": "projects/tribute-page",
+                    "description": "A page dedicated to creating tributes."
+                },
+                {
+                    "name": "Portfolio",
+                    "link": "projects/portfolio/portfolio.html",
+                    "description": "Showcase your work in a portfolio format."
+                },
+                {
+                    "name": "Blog",
+                    "link": "projects/blog/blog.html",
+                    "description": "Create and manage your blog posts."
+                },
+                {
+                    "name": "Magazine",
+                    "link": "projects/magazine/magazine.html",
+                    "description": "Design and view a magazine layout."
+                }
+            ]
+        },
+        {
+            "category": "Miscellaneous Projects",
+            "projects": [
+                {
+                    "name": "To-Do List",
+                    "link": "projects/tasks/Tasklist.html",
+                    "description": "Manage your tasks with this to-do list."
+                },
+                {
+                    "name": "Photo Gallery",
+                    "link": "projects/photo-gallery/photo-gallery.html",
+                    "description": "View and manage a photo gallery."
+                },
+                {
+                    "name": "Cafe Menu Design",
+                    "link": "projects/cafe-menu/cafe-menu.html",
+                    "description": "Design a menu for a cafe."
+                },
+                {
+                    "name": "Nutrition Label Design",
+                    "link": "projects/nutrition-label/nutrition-label.html",
+                    "description": "Create a nutrition label design."
+                },
+                {
+                    "name": "PowerShell Scripting",
+                    "link": "projects/powershell/Powershell.html",
+                    "description": "Examples of PowerShell scripts."
+                },
+                {
+                    "name": "Python Scripts",
+                    "link": "projects/python/Python.html",
+                    "description": "Various Python script examples."
+                },
+                {
+                    "name": "Cat Photo App",
+                    "link": "projects/cat-photo-app/cat-photo-app.html",
+                    "description": "An app for displaying cat photos."
+                },
+                {
+                    "name": "Virtual Environment",
+                    "link": "projects/venvironment/venvironment.html",
+                    "description": "Set up and explore virtual environments."
+                }
+            ]
+        },
+        {
+            "category": "Fun & Entertainment",
+            "projects": [
+                {
+                    "name": "Yo-Momma Jokes",
+                    "link": "projects/yo-momma/index.html",
+                    "description": "Enjoy a collection of Yo-Momma jokes."
+                },
+                {
+                    "name": "Cool Things",
+                    "link": "projects/cool-things/cool-things.html",
+                    "description": "Explore a list of cool and interesting things."
+                },
+                {
+                    "name": "Rotating Cubes I",
+                    "link": "projects/rotating-cubes/rotating-cube.html",
+                    "description": "View a rotating cube animation."
+                },
+                {
+                    "name": "Rotating Cubes II",
+                    "link": "projects/rotating-cubes/rotating-cube1.html",
+                    "description": "Another example of rotating cubes."
+                },
+                {
+                    "name": "Planetary System Model",
+                    "link": "projects/planetary-system/planetary-system.html",
+                    "description": "A model of the planetary system."
+                }
+            ]
+        }
+    ]
+}

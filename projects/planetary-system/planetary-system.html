@@ -1,0 +1,143 @@
+﻿<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      scale: 0.5;
+      background-color: #1ce1ce; /* Optional background color */
+    }
+    #canvas {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      
+    }
+    #scene {
+      position: relative;
+    }
+    #earth {
+      width: 10vw;
+      height: 10vw;
+      border-radius: 50%;
+      background-color: #3399ff; /* Blue color for the Earth */
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transform-origin: center center;
+      animation: rotateEarth 10s linear infinite, scaleEarth 5s linear infinite alternate;
+    }
+    #moonOrbit {
+      width: 20vw;
+      height: 20vw;
+      border: 1px dashed gray;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transform-origin: center center;
+      animation: orbitMoon 5s linear infinite;
+    }
+    #moon {
+      width: 5vw;
+      height: 5vw;
+      background-color: #333; /* Grey color for the Moon */
+      border: 1px dashed gray;
+      border-radius: 50%;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translate(0%, -150%);
+      animation: revolveMoon 5s linear infinite;
+    }
+    #secondMoonOrbit {
+      width: 4vw;
+      height: 4vw;
+      border: 1px dashed gray;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transform-origin: center center;
+      animation: orbitSecondMoon 3s linear infinite;
+    }
+    #secondMoon {
+      width: 2.5vw;
+      height: 2.5vw;
+      background-color: green; /* Color for the second moon */
+      border-radius: 50%;
+      position: absolute;
+      top: 0;
+      left: 100%;
+      transform: translate(-50%, 0);
+      animation: revolveSecondMoon 3s linear infinite;
+    }
+    @keyframes rotateEarth {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+    @keyframes scaleEarth {
+      from {
+        transform: scale(1);
+      }
+      to {
+        transform: scale(0.5);
+      }
+    }
+    @keyframes orbitMoon {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+    @keyframes revolveMoon {
+      from {
+        transform: rotate(0deg) translateY(-10vw) rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg) translateY(-10vw) rotate(-360deg);
+      }
+    }
+    @keyframes orbitSecondMoon {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+    @keyframes revolveSecondMoon {
+      from {
+        transform: rotate(0deg) translateY(-20vw) rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg) translateY(-20vw) rotate(-360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="canvas">
+    <div id="scene">
+      <div id="earth"></div>
+      <div id="moonOrbit">
+        <div id="moon"></div>
+        <div id="secondMoonOrbit">
+          <div id="secondMoon"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</body></html>

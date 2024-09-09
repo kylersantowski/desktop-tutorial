@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cubic Bezier Stroke Path</title>
+    <style>
+        *,
+html {
+  text-align: center;
+  justify-content: center;
+}
+
+h1 {
+  font-family: Arial, sans-serif;
+  transform: skew(-15deg);
+  display: inline-block;
+  background-color: #00ee00;
+  padding: 100px 200px;
+  border: 10px double black;
+  border-radius: 10px;
+  background-image: repeating-linear-gradient(
+    10deg,
+    #00beef,
+    #fff0 10px,
+    #ff0f 10px,
+    #f0ff 20px
+  );
+  background-size: 30px, 10px;
+  background-repeat: repeat;
+  -webkit-background-clip: text;
+  background-clip: text, border-box;
+  color: transparent;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  50% {
+  transition: transform;
+  transform: translateX(100px) skewX(180deg) skewY(180deg) scaleY(1.1);
+    box-shadow: 0 0 10px red;
+}
+  
+}
+canvas {
+  perspective: 100px;
+  margin: 50% auto;
+  box-shadow: 0 0 100px black;
+  border: 5px double black;
+  display: block;
+  margin-top: 20px;
+  width: 50%;
+  height: 50%;
+}
+
+th {
+  border: 1px solid;
+}
+tr {
+  margin: 50% auto;
+}
+
+canvas {
+  font-size: 2rem;
+  background: linear-gradient(45deg, #ff3366, #ff9900, #33cc33);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent; 
+}
+    </style>
+</head>
+<body>
+    <h1>Cubic Bezier Stroke Path</h1>
+    <table id="inputTable">
+        <thead>
+            <tr>
+                <th colspan="2">Control Point 1 (x1, y1)</th>
+                <th colspan="2">Control Point 2 (x2, y2)</th>
+                <th colspan="2">End Point (x, y)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="text" name="x1" placeholder="x1"></td>
+                <td><input type="text" name="y1" placeholder="y1"></td>
+                <td><input type="text" name="x2" placeholder="x2"></td>
+                <td><input type="text" name="y2" placeholder="y2"></td>
+                <td><input type="text" name="x" placeholder="x"></td>
+                <td><input type="text" name="y" placeholder="y"></td>
+            </tr>
+        </tbody>
+    </table>
+    <button id="addRowBtn">Add Row</button>
+    <canvas id="bezierCanvas" width="400" height="400"></canvas>
+    <script>
+      
+    </script>
+</body>
+</html>

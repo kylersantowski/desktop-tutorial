@@ -1,0 +1,27 @@
+{
+    "websiteName": "rotating-cubes",
+    "files": [
+      {
+        "type": "HTML",
+        "location": "../rotating-cubes/rotating-cube.html"
+      },
+      {
+        "type": "CSS",
+        "location": "../rotating-cubes/rotating-cube.css"
+      },
+      {
+        "type": "JavaScript",
+        "location": ""
+      },
+      {
+        "type": "Image",
+        "location": "../rotating-cubes/rotating-cubes.jpeg"
+      },
+      {
+        "type": "Document",
+        "location": "documents/terms-of-service.pdf"
+      }
+      // Add more file types and locations as needed
+    ]
+  }
+  

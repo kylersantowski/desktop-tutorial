@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* Add the navigation styles */
+    nav {
+      background-color: #2c3e50;
+      padding: 10px;
+      text-align: center;
+    }
+
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+      display: inline;
+      margin-right: 15px;
+    }
+
+    a {
+      text-decoration: none;
+      color: #ecf0f1;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    a:hover {
+      color: #3498db;
+    }
+
+    /* Add styles for the new section */
+    section {
+      background-color: #ecf0f1;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin-top: 20px;
+    }
+
+    blockquote {
+      background-color: #f9f9f9;
+      border-left: 5px solid #3498db;
+      padding: 10px;
+      margin: 10px 0;
+    }
+
+    dd {
+      margin-left: 20px;
+    }
+
+    div {
+      background-color: #ecf0f1;
+      padding: 10px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    figure {
+      margin: 0;
+    }
+
+    bdi {
+      color: #e74c3c;
+    }
+
+    bdo {
+      direction: rtl; /* Right-to-left text direction */
+      unicode-bidi: bidi-override; /* Override the text's inherent direction */
+    }
+
+    data {
+      font-weight: bold;
+      color: #e74c3c;
+    }
+
+    dfn {
+      font-style: italic;
+    }
+
+    kbd {
+      background-color: #3498db;
+      color: #fff;
+      padding: 3px 5px;
+      border-radius: 3px;
+      font-family: 'Courier New', monospace;
+    }
+
+    q {
+      quotes: "“" "”"; /* Define custom quote marks */
+    }
+
+    rp {
+      display: none; /* Hide parentheses around <ruby> annotations */
+    }
+
+    rt {
+      font-style: normal; /* Reset the font style for <rt> element */
+    }
+
+    wbr {
+      height: 0.5px;/* No specific styles for <wbr>, as it is a line break opportunity */
+    }
+
+    time {
+      font-style: italic;
+      color: #27ae60;
+    }
+
+    var {
+      font-style: italic;
+      color: #e67e22;
+    }
+
+    span {
+      font-weight: bold;
+      color: #3498db;
+    }
+
+    track {
+      display: block;
+      margin-top: 10px;
+    }
+
+    /* Add some styles for the new HTML elements */
+    portal {
+      display: block;
+      padding: 20px;
+      background-color: #e74c3c;
+      color: #fff;
+      text-align: center;
+      font-weight: bold;
+      margin-top: 20px;
+      border-radius: 8px;
+    }
+
+    canvas {
+      border: 2px solid #3498db;
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+
+    ins {
+      text-decoration: underline;
+      color: #27ae60;
+    }
+
+    col {
+      background-color: #ecf0f1;
+      border: 1px solid #bdc3c7;
+      padding: 10px;
+    }
+
+    colgroup {
+      background-color: #ecf0f1;
+      border: 1px solid #bdc3c7;
+    }
+
+    datalist {
+      margin-top: 10px;
+    }
+
+    form {
+      margin-top: 20px;
+    }
+
+    meter {
+      width: 100%;
+      height: 20px;
+      background-color: #ecf0f1;
+      border: 1px solid #bdc3c7;
+      border-radius: 5px;
+      margin-top: 10px;
+      overflow: hidden;
+    }
+
+    meter::value {
+      background-color: #3498db;
+      height: 100%;
+      display: block;
+      border-radius: 5px;
+    }
+
+    optgroup {
+      margin-top: 10px;
+    }
+
+    output {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    progress {
+      width: 100%;
+      height: 20px;
+      background-color: #ecf0f1;
+      border: 1px solid #bdc3c7;
+      border-radius: 5px;
+      margin-top: 10px;
+      overflow: hidden;
+    }
+
+    progress::value {
+      background-color: #3498db;
+      height: 100%;
+      display: block;
+      border-radius: 5px;
+    }
+
+    dialog {
+  position: relative;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 20px;
+  transform: rotate(45deg) scaleX(1.5);
+  opacity: 50%;
+  background: linear-gradient(45deg, #3498db, rgba(127, 255, 127, 0.7));
+}
+
+dialog::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  right: -8px;
+  bottom: -8px;
+  border: 2px solid #3498db;
+  border-radius: 10px; /* Adjust the border-radius to match the dialog */
+  z-index: -1;
+  
+}
+
+
+    template {
+      display: none;
+    }
+
+    summary {
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    details {
+      margin-top: 20px;
+      border: 1px solid #bdc3c7;
+      border-radius: 8px;
+      padding: 10px;
+    }
+
+    select {
+      margin-top: 10px;
+      padding: 5px;
+      border: 1px solid #bdc3c7;
+      border-radius: 5px;
+    }
+
+    option {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+    <defs>
+        <lineargradient id="myGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" style="stop-color:rgb(255,255,0);stop-opacity:1">
+          <stop offset="100%" style="stop-color:rgb(255,0,0);stop-opacity:1">
+        </stop></stop></lineargradient>
+      </defs>
+          <rect width="100" height="100" fill="url(#myGradient)">
+  <header>
+    <h1><small>txt</small> to <strong>UAE</strong></h1>
+    <!-- Navigation bar -->
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <aside>aside?</aside>
+    <!-- Your main content goes here -->
+    <article>
+      <h2>Article Title</h2>
+      <p>Article content...</p>
+      <!-- Add the new HTML elements here -->
+      <portal>
+        This is a portal element. Click to enter!
+      </portal>
+      <canvas width="400" height="200">
+        <!-- Add canvas content or use JavaScript to draw on the canvas -->
+      </canvas>
+      <ins>
+        This text has been inserted using the <code>&lt;ins&gt;</code> element.
+      </ins>
+      <ruby>
+        <rb>HTML</rb>
+        <rp>(</rp><rt>HyperText Markup Language</rt><rp>)</rp>
+      </ruby>
+      <col>
+        This is a column with some content.
+      </col>
+      <!-- You can use <colgroup> to apply styles to a group of columns -->
+      <colgroup>
+        <col>
+        <col>
+      </colgroup>
+      <col>
+        Another column with content.
+      </col>
+      <datalist id="languages">
+        <option value="HTML">
+        </option><option value="CSS">
+        </option><option value="JavaScript">
+        </option><option value="Python">
+      </option></datalist>
+      <form action="/submit" method="post">
+        <label for="programmingLanguage">Select a programming language:</label>
+        <input type="text" id="programmingLanguage" name="programmingLanguage" list="languages">
+        <button type="submit">Submit</button>
+      </form>
+      <meter value="50" min="0" max="100"></meter>
+      <optgroup label="Group 1">
+        <option>Option 1.1</option>
+        <option>Option 1.2</option>
+      </optgroup>
+      <optgroup label="Group 2">
+        <option>Option 2.1</option>
+        <option>Option 2.2</option>
+      </optgroup>
+      <output for="programmingLanguage">You selected: <span id="selectedLanguage"></span></output>
+      <progress value="50" max="100"></progress>
+      <dialog open="">
+        <p>This is a dialog box.</p>
+        <button>Close</button>
+      </dialog>
+      <template>
+        <p>This is content inside a template element.</p>
+      </template>
+      <details open="">
+        <summary>Click me</summary>
+        <p>This is a hidden section that can be revealed by clicking the summary.</p>
+      </details>
+      <select>
+        <option value="option1">Option 1</option>
+        <option value="option2">Option 2</option>
+        <option value="option3">Option 3</option>
+      </select>
+    </article>
+    <!-- Add more articles or content sections as needed -->
+    <slot></slot>
+    <!-- Define a simple web component with a slot -->
+    <my-component>
+      <!-- Content to be inserted into the slot -->
+      <p>This content goes into the slot!</p>
+    </my-component>
+    <!-- Your new section -->
+    <section>
+      <h2>Featured Section</h2>
+      <p>This is some content in the featured section. You can add more elements and details here.</p>
+    </section>
+    <!-- Your JavaScript to handle the web component (if needed) -->
+    <script>
+    // Define the web component using the Shadow DOM
+    class MyComponent extends HTMLElement {
+      constructor() {
+        super();
+
+        // Create a shadow root
+        const shadow = this.attachShadow({ mode: 'open' });
+
+        // Create a container element
+        const container = document.createElement('div');
+
+        // Append the template content to the container
+        container.innerHTML = `
+          <style>
+            /* Add styling for the component if needed */
+            :host {
+              display: block;
+              border: 1px solid #ccc;
+              padding: 10px;
+            }
+          </style>
+          <slot></slot>
+        `;
+
+        // Append the container to the shadow root
+        shadow.appendChild(container);
+      }
+    }
+
+    // Define the custom element
+    customElements.define('my-component', MyComponent);
+    </script>
+  </main>
+  <footer>
+    <!-- Footer content, such as copyright information or links -->
+    <p>© 2024 Your Website Name. All rights reserved.</p>
+  </footer>
+</rect></body></html>

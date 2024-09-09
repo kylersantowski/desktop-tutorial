@@ -1,0 +1,17 @@
+body {
+    background-color:cadetblue;
+}
+
+table {
+    padding: 10px;
+    margin: 10px;
+    color: #bab1e5;
+}
+
+td {
+    border-radius: 10px;
+    background-color: white;
+    text-align: center;
+    width: 10px;
+    height: 10px;
+}

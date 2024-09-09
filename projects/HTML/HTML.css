@@ -1,0 +1,14 @@
+/*Your CSS styles go here*/
+
+/*The root specifies the origin*/
+:root {
+    background-color: hsla(180deg, 100%, 50%, 1); /*color the background of the root*/
+    margin: calc(-50%) calc(-50%); /*center the content*/
+    padding: 50%; /*move the center*/
+    overflow: hidden;
+    justify-content: center;
+    text-align: center;
+}
+:root:hover {
+    filter: invert(100%);
+}

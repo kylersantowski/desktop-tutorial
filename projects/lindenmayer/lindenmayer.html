@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lindenmayer Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        .canvas {
+            width: 80vw;
+            max-width: 800px;
+            height: 80vw;
+            max-height: 800px;
+            position: relative;
+            margin: auto; /* Center the canvas both horizontally and vertically */
+        }
+        .line {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform-origin: bottom;
+            background-color: green;
+            opacity: 0; /* Initially invisible */
+        }
+        .controls {
+            width: 80vw;
+            max-width: 400px;
+            margin: 20px auto;
+            text-align: center;
+        }
+        .slider {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="canvas" id="canvas"></div>
+    <div class="controls">
+        <label for="iterations">Iterations:</label>
+        <input type="range" id="iterations" class="slider" min="0" max="1" value="1" step="1">
+    </div>
+
+    <script>
+        // Lindenmayer system example
+        const axiom = "X";
+        const rules = {
+            "X": "F-[[X]+X]+F[+FX]-X",
+            "F": "FF"
+        };
+        const angle = 15;
+        const length = 20;
+
+        let currentString = axiom;
+        let nextString = "";
+
+        const canvas = document.getElementById('canvas');
+        let currentPosition = { x: 400, y: 400 }; // Start from the center of the canvas
+        let currentAngle = 1;
+
+        function drawLindenmayer(iterations) {
+            canvas.innerHTML = ''; // Clear previous drawings
+            currentPosition = { x: 400, y: 400 }; // Reset position
+            currentAngle = 1; // Reset angle
+
+            for (let i = 0; i < iterations; i++) { // Number of iterations
+                for (let char of currentString) {
+                    if (char === "F") {
+                        const newX = currentPosition.x + Math.cos(currentAngle * Math.PI / 100) * length;
+                        const newY = currentPosition.y + Math.sin(currentAngle * Math.PI / 100) * length;
+                        const newLine = document.createElement('div');
+                        newLine.className = 'line';
+                        newLine.style.width = length + '1px';
+                        newLine.style.height = '1px';
+                        newLine.style.backgroundColor = 'green';
+                        newLine.style.transform = `rotate(${currentAngle}deg)`;
+                        newLine.style.left = currentPosition.x + '1px';
+                        newLine.style.top = currentPosition.y + '1px';
+                        canvas.appendChild(newLine);
+                        currentPosition.x = newX;
+                        currentPosition.y = newY;
+                    } else if (char === "+") {
+                        currentAngle += angle;
+                    } else if (char === "-") {
+                        currentAngle -= angle;
+                    } else if (char === "[") {
+                        nextString = currentString;
+                    } else if (char === "]") {
+                        currentString = nextString;
+                    } else {
+                        nextString += rules[char] || char;
+                    }
+                }
+                currentString = nextString;
+                nextString = "";
+            }
+        }
+
+        function animateLindenmayer() {
+            let lines = document.querySelectorAll('.line');
+            lines.forEach((line, index) => {
+                setTimeout(() => {
+                    line.style.opacity = '1'; // Make line visible
+                }, index * 10); // Adjust delay for animation speed
+            });
+        }
+
+        const slider = document.getElementById('iterations');
+        slider.addEventListener('input', () => {
+            const iterations = slider.value;
+            drawLindenmayer(iterations);
+            animateLindenmayer();
+        });
+
+        // Initial drawing
+        drawLindenmayer(5);
+        animateLindenmayer();
+    </script>
+</body>
+</html>

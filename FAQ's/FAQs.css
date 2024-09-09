@@ -1,0 +1,40 @@
+/* FAQs Page Styling */
+
+.faq-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.faq-item {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.faq-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.faq-question {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #007acc;
+    cursor: pointer; /* Makes it look clickable */
+    margin-bottom: 5px;
+}
+
+.faq-answer {
+    font-size: 1em;
+    color: #666;
+    margin-top: 5px;
+    display: none; /* Hidden by default */
+}
+
+.faq-item.active .faq-answer {
+    display: block; /* Show the answer when the item is active */
+}
