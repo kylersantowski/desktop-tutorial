@@ -1,0 +1,154 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+section {
+    margin-bottom: 50px;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+/* Flexbox Layout */
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    background-color: #eaeaea;
+    padding: 20px;
+}
+
+.flex-container .box {
+    background-color: #4CAF50;
+    padding: 40px;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    flex: 1;
+}
+
+/* CSS Grid Layout */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    background-color: #eaeaea;
+    padding: 20px;
+}
+
+.grid-item {
+    background-color: #FF5722;
+    padding: 40px;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+}
+
+/* Fixed Layout */
+.fixed-container {
+    display: grid;
+    grid-template-areas:
+        "header header"
+        "sidebar main"
+        "footer footer";
+    grid-template-columns: 1fr 3fr;
+    gap: 20px;
+    background-color: #eaeaea;
+    padding: 20px;
+}
+
+.fixed-container header {
+    grid-area: header;
+    background-color: #2196F3;
+    padding: 20px;
+    text-align: center;
+    color: white;
+}
+
+.fixed-container aside {
+    grid-area: sidebar;
+    background-color: #8BC34A;
+    padding: 20px;
+    text-align: center;
+    color: white;
+}
+
+.fixed-container main {
+    grid-area: main;
+    background-color: #FFC107;
+    padding: 20px;
+    text-align: center;
+    color: white;
+}
+
+.fixed-container footer {
+    grid-area: footer;
+    background-color: #795548;
+    padding: 20px;
+    text-align: center;
+    color: white;
+}
+
+/* Responsive Layout */
+.responsive-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    background-color: #eaeaea;
+    padding: 20px;
+}
+
+.responsive-box {
+    background-color: #9C27B0;
+    padding: 40px;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    flex: 1 1 200px;
+}
+
+/* Toggle layout shared styles */
+#toggleContainer {
+    margin-top: 20px;
+    transition: all 0.5s ease;
+}
+
+/* Additional grid styles for toggling */
+#toggleContainer.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+#toggleContainer.flex-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Default size for resizable boxes */
+.resizable {
+    width: 150px;
+    height: 150px;
+    transition: width 0.3s, height 0.3s;
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 600px) {
+    .flex-container .box, 
+    .grid-container .grid-item, 
+    .fixed-container, 
+    .responsive-box {
+        font-size: 16px;
+    }
+}

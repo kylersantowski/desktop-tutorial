@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout Examples with JavaScript Interactivity</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <h1>Layout Examples with Interactivity</h1>
+
+    <!-- Toggle Layout Section -->
+    <section id="toggle-layout">
+        <h2>Toggle Layout</h2>
+        <button id="toggleButton">Switch to Grid Layout</button>
+        <div id="toggleContainer" class="flex-container">
+            <div class="box">1</div>
+            <div class="box">2</div>
+            <div class="box">3</div>
+            <div class="box">4</div>
+        </div>
+    </section>
+
+    <!-- Flexbox Layout Section -->
+    <section id="flexbox-layout">
+        <h2>Flexbox Layout</h2>
+        <div class="flex-container">
+            <div class="box">1</div>
+            <div class="box">2</div>
+            <div class="box">3</div>
+            <div class="box">4</div>
+        </div>
+    </section>
+
+    <!-- CSS Grid Layout Section -->
+    <section id="grid-layout">
+        <h2>CSS Grid Layout</h2>
+        <div class="grid-container">
+            <div class="grid-item">1</div>
+            <div class="grid-item">2</div>
+            <div class="grid-item">3</div>
+            <div class="grid-item">4</div>
+            <div class="grid-item">5</div>
+            <div class="grid-item">6</div>
+        </div>
+    </section>
+
+    <!-- Fixed Layout Section -->
+    <section id="fixed-layout">
+        <h2>Fixed Layout</h2>
+        <div class="fixed-container">
+            <header>Header</header>
+            <aside>Sidebar</aside>
+            <main>Content Area</main>
+            <footer>Footer</footer>
+        </div>
+    </section>
+
+    <!-- Responsive Layout Section -->
+    <section id="responsive-layout">
+        <h2>Responsive Layout</h2>
+        <div class="responsive-container">
+            <div class="responsive-box">A</div>
+            <div class="responsive-box">B</div>
+            <div class="responsive-box">C</div>
+            <div class="responsive-box">D</div>
+        </div>
+    </section>
+
+    <!-- Responsive Control -->
+    <section id="responsive-control">
+        <h2>Responsive Scaling</h2>
+        <label for="sizeSlider">Change Box Size:</label>
+        <input type="range" id="sizeSlider" min="100" max="300" value="150">
+        <div class="flex-container" id="resizableContainer">
+            <div class="box resizable">1</div>
+            <div class="box resizable">2</div>
+            <div class="box resizable">3</div>
+            <div class="box resizable">4</div>
+        </div>
+    </section>
+
+    <!-- Section Visibility Control -->
+    <section id="control-section">
+        <h2>Control Section Visibility</h2>
+        <label>
+            <input type="checkbox" id="toggleFlexbox" checked>
+            Show Flexbox Layout
+        </label>
+        <label>
+            <input type="checkbox" id="toggleGrid" checked>
+            Show Grid Layout
+        </label>
+        <label>
+            <input type="checkbox" id="toggleFixed" checked>
+            Show Fixed Layout
+        </label>
+        <label>
+            <input type="checkbox" id="toggleResponsive" checked>
+            Show Responsive Layout
+        </label>
+    </section>
+
+    <script src="layout.js"></script>
+</body>
+</html>

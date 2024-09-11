@@ -25,7 +25,7 @@
                 },
                 {
                     "name": "Mandelbrot Set",
-                    "link": "projects/mandelbrot/Mandelbrot.html",
+                    "link": "projects/mandelbrot/mandelbrot.html",
                     "description": "Explore the Mandelbrot Set fractal."
                 },
                 {
@@ -150,7 +150,7 @@
                 },
                 {
                     "name": "Stick Hero Game",
-                    "link": "projects/stick-hero",
+                    "link": "projects/stick-hero/stick-hero-game.html",
                     "description": "Play the Stick Hero game."
                 },
                 {
@@ -170,7 +170,7 @@
                 },
                 {
                     "name": "Tribute Page",
-                    "link": "projects/tribute-page",
+                    "link": "projects/tribute-page/tribute-page.html",
                     "description": "A page dedicated to creating tributes."
                 },
                 {
@@ -187,6 +187,11 @@
                     "name": "Magazine",
                     "link": "projects/magazine/magazine.html",
                     "description": "Design and view a magazine layout."
+                },
+                {
+                    "name": "Clock",
+                    "link": "projects/clock/clock.html",
+                    "description": "Learn more about time."
                 }
             ]
         },
