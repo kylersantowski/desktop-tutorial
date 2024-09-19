@@ -47,6 +47,11 @@
                     "name": "Virtual Piano",
                     "link": "projects/piano/piano.html",
                     "description": "Play piano virtually with this interactive tool."
+                },
+                {
+                    "name": "Activities",
+                    "link": "projects/activities/activities.html",
+                    "description": "Activities to keep you busy online."
                 }
             ]
         },
