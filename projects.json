@@ -52,6 +52,11 @@
                     "name": "Activities",
                     "link": "projects/activities/activities.html",
                     "description": "Activities to keep you busy online."
+                },
+                {
+                    "name": "Template Editor",
+                    "link": "projects/template/index.html",
+                    "description": "A refined look at editing an html with json files"
                 }
             ]
         },
