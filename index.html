@@ -4,30 +4,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>desktop-tutorial</title>
+    <title>Project Categories</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="light-theme">
+    <!-- Wrapper for the entire content -->
     <div class="content-wrapper">
+        <!-- Header section with logo, navigation, and theme switcher -->
         <header>
-            <img src="https://raw.githubusercontent.com/kylersantowski/desktop-tutorial/main/tshirt_design.png" height="52" width="52" alt="T-Shirt Design">
+            <!-- Logo in the header -->
+            <img src="https://raw.githubusercontent.com/kylersantowski/desktop-tutorial/main/tshirt_design.png"
+                height="52" width="52" alt="T-Shirt Design">
+
+            <!-- Placeholder for navigation menu (populated dynamically later) -->
             <nav>
                 <ul class="navigation-menu" id="navigation-menu"></ul>
             </nav>
+
+            <!-- Theme switcher control -->
             <div class="theme-switcher">
                 <label for="theme-toggle"></label>
+                <!-- Range input for toggling between themes -->
                 <input type="range" id="theme-toggle" min="1" max="3" value="1">
             </div>
         </header>
+        <!-- Horizontal rule to divide sections -->
         <hr>
+
+        <!-- Main container for the project categories and projects -->
         <main id="project-container">
-            <h1>Welcome to my project!</h1>
-            <!-- Placeholder for dynamic content or additional navigation -->
+            <!-- Categories and projects will be dynamically injected here by the script -->
         </main>
     </div>
+
+    <!-- Footer section with affiliate links to vouchers -->
     <footer>
-        <!-- Footer content if needed -->
+        <!-- Voucher container displaying multiple vouchers -->
         <div class="voucher-container">
             <div class="voucher-item">
                 <a href="https://buyvoucher.ott-mobile.com/?ag=1555" target="_blank" title="Buy Voucher 1">
@@ -46,6 +59,8 @@
             </div>
         </div>
     </footer>
+
+    <!-- JavaScript to dynamically load and display projects -->
     <script src="script.js"></script>
 </body>
 

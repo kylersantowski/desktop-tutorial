@@ -1,14 +1,36 @@
-/* Global Reset */
+/* =================================== */
+/* Reset and Global Styles             */
+/* =================================== */
+
+/* Reset all elements to avoid browser-specific styling issues */
 * {
     margin: 0;
-    padding: 0;
+    padding: 2.5px;
     box-sizing: border-box; /* Ensures padding and border are included in the element's total width and height */
 }
 
-/* Body Styling */
+/* Root for theme color variables */
+:root {
+    --main-bg-color: #bab1e5;
+    --main-text-color: #f00d42;
+    --light-theme-bg: #afafaf;
+    --light-theme-text: #333;
+    --dark-theme-bg: #1c1c1e;
+    --dark-theme-text: #f4f4f9;
+    --custom-theme-bg: #e5e5f7;
+    --custom-theme-text: #d3c033;
+    --link-color: #007acc;
+    --border-color: #7cc6c9;
+    --hover-shadow: 0 4px 18px rgba(0, 0, 0, 0.1);
+}
+
+/* =================================== */
+/* Body Styles                         */
+/* =================================== */
+
 body {
     font-family: Arial, sans-serif; /* Sets the default font for the body */
-    line-height: 1.6; /* Improves readability by increasing line height */
+    line-height: 1.0; /* Improves readability by increasing line height */
     display: flex; 
     flex-direction: column;
     min-height: 100vh; /* Ensures the body takes at least the full height of the viewport */
@@ -17,128 +39,102 @@ body {
     color: var(--main-text-color); /* Uses a CSS variable for the text color */
 }
 
-/* Content Wrapper */
-.content-wrapper {
-    flex: 1; /* Allows the content wrapper to grow and fill available space */
-    width: 100%; /* Sets the width of the content wrapper */
-    margin: 0 auto; /* Centers the content wrapper horizontally */
-    padding: 20px; /* Adds padding inside the content wrapper */
+body.light-theme {
+    background-color: #dad7a2; /* Light background color */
+    color: #333; /* Dark text color */
 }
 
-/* Horizontal Rule */
-hr {
-    border: 2px solid blue; /* Sets the border color and width for horizontal rules */
-    margin-bottom: 20px; /* Adds space below horizontal rules */
+body.dark-theme {
+    background-color: #2c3e50; /* Dark background color */
+    color: #00beef; /* Light text color */
 }
 
-/* Links */
+body.blue-theme {
+    background-color: #b00b1e; /* boobie background color */
+    color: #1ce1ce; /* Ice text color */
+}
+
+/* =================================== */
+/* Anchor (Link) Styles                */
+/* =================================== */
+
 a {
-    text-decoration: none; /* Removes underline from links */
-    font-size: 18px; /* Sets the font size for links */
+    text-decoration: underline; /* Removes underline from links */
+    font-size: 12px; /* Sets the font size for links */
     transition: color 0.5s ease; /* Adds a smooth transition effect for color changes */
 }
 
 a:hover {
     text-decoration: underline; /* Adds underline and overline on hover */
-}
-
-/* Paragraphs */
-p {
-    margin: 10px 0; /* Adds vertical margin to paragraphs */
-    font-size: 18px; /* Sets the font size for paragraphs */
-}
-
-/* Themes */
-
-/* Default Theme (Light) */
-body.light-theme {
-    background-color: #f4f4f4; /* Light background color */
-    color: #333; /* Dark text color */
+    font-weight: 900 ;
 }
 
 body.light-theme a {
     color: #3498db; /* Link color for light theme */
 }
 
-body.light-theme .nav-column {
-    background-color: #fff; /* Background color for navigation column */
-    border: 1px solid #ddd; /* Border color for navigation column */
-    color: #333; /* Text color for navigation column */
-}
-
-body.light-theme .voucher-img {
-    border: 1px solid #ddd; /* Border color for voucher images */
-}
-
-/* Dark Theme */
-body.dark-theme {
-    background-color: #2c3e50; /* Dark background color */
-    color: #ecf0f1; /* Light text color */
-}
-
 body.dark-theme a {
     color: #e74c3c; /* Link color for dark theme */
-}
-
-body.dark-theme .nav-column {
-    background-color: #34495e; /* Background color for navigation column */
-    border: 1px solid #2c3e50; /* Border color for navigation column */
-    color: #ecf0f1; /* Text color for navigation column */
-}
-
-body.dark-theme .voucher-img {
-    border: 1px solid #34495e; /* Border color for voucher images */
-}
-
-/* Blue Theme */
-body.blue-theme {
-    background-color: #3498db; /* Blue background color */
-    color: #ffffff; /* White text color */
 }
 
 body.blue-theme a {
     color: #f39c12; /* Link color for blue theme */
 }
 
-body.blue-theme .nav-column {
-    background-color: #2980b9; /* Background color for navigation column */
-    border: 1px solid #3498db; /* Border color for navigation column */
-    color: #ffffff; /* Text color for navigation column */
+/* Tooltip */
+a[title] {
+    position: relative; /* Sets the position to relative for positioning child elements */
 }
 
-body.blue-theme .voucher-img {
-    border: 1px solid #2980b9; /* Border color for voucher images */
+a[title]::before {
+    content: attr(title); /* Uses the title attribute as content */
+    position: absolute; /* Positions the tooltip absolutely */
+    bottom: 10%; /* Positions the tooltip above the link */
+    left: 50%; /* Centers the tooltip horizontally */
+    transform: translateX(-50%); /* Centers the tooltip */
+    background-color: #333; /* Dark background color for tooltip */
+    color: #fff; /* Light text color for tooltip */
+    padding: 5px; /* Adds padding inside tooltip */
+    border-radius: 4px; /* Rounds the corners of tooltip */
+    font-size: 12px; /* Sets the font size for tooltip */
+    white-space: nowrap; /* Prevents tooltip from wrapping */
+    opacity: 0; /* Hides the tooltip by default */
+    transition: opacity 0.3s ease; /* Adds a smooth transition effect for opacity */
+    pointer-events: none;
+    z-index: 100;
 }
 
-/* Header and Main Content */
-header {
-    margin-bottom: 20px; /* Adds space below the header */
-    display: flex; /* Uses flexbox for layout */
-    align-items: center; /* Centers items vertically */
-    justify-content: space-between; /* Distributes space between items */
+a[title]:hover::before {
+    opacity: 1; /* Shows the tooltip when the link is hovered */
 }
 
-header img {
-    height: 52px; /* Sets the height of the header image */
-    width: 52px; /* Sets the width of the header image */
-}
+/* =================================== */
+/* Headers and Typography              */
+/* =================================== */
 
-/* Main Heading (h1) */
 h1 {
-    margin-bottom: 20px; /* Adds space below the main heading */
+    margin-bottom: 10px; /* Adds space below the main heading */
     text-align: center; /* Centers the main heading */
 }
 
-/* Theme Switcher Styling */
-.theme-switcher {
-    margin-top: 20px; /* Adds space above the theme switcher */
+h2 {
+    font-weight: 900;
+    font-size: 1.5em; /* Sets the font size for h2 headings */
+    color: var(--link-color); /* Uses the link color for h2 headings */
+    border-bottom: 2px solid var(--link-color); /* Adds a bottom border to h2 headings */
+    padding-bottom: 5px; /* Adds padding below h2 headings */
 }
 
-#theme-toggle {
-    width: 200px; /* Sets the width of the theme toggle button */
+/* Paragraphs */
+p {
+    margin: 1px 0; /* Adds vertical margin to paragraphs */
+    font-size: 12px; /* Sets the font size for paragraphs */
 }
 
-/* Navigation Styling */
+/* =================================== */
+/* Navigation Styles                   */
+/* =================================== */
+
 nav {
     position: relative; /* Sets the position to relative for positioning child elements */
 }
@@ -146,7 +142,7 @@ nav {
 .navigation-menu {
     list-style: none; /* Removes default list styling */
     display: flex; /* Uses flexbox for layout */
-    gap: 20px; /* Adds space between navigation items */
+    gap: 10px; /* Adds space between navigation items */
     padding: 0; /* Removes default padding */
 }
 
@@ -160,34 +156,38 @@ nav {
     display: block; /* Makes links block-level elements */
 }
 
+/* Submenus */
 .submenu {
-    display: none; /* Hides submenus by default */
-    position: absolute; /* Positions submenus absolutely */
+    display: block; /* Hides submenus by default */
+    position: relative; /* Positions submenus absolutely */
     background-color: #fff; /* Sets the background color for submenus */
     padding: 10px; /* Adds padding inside submenus */
     list-style: none; /* Removes default list styling */
     margin: 0; /* Removes default margin */
     border: 1px solid #ccc; /* Adds a border to submenus */
-    top: 100%; /* Positions submenus below the parent item */
-    left: 0; /* Aligns submenus to the left */
+    top: 10%; /* Positions submenus below the parent item */
+    left: 10; /* Aligns submenus to the left */
     z-index: 1000; /* Ensures submenus appear above other elements */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a shadow to submenus */
 }
 
 .submenu li {
-    margin-bottom: 5px; /* Adds space below submenu items */
+    margin-bottom: 2.5px; /* Adds space below submenu items */
 }
 
 .submenu li a {
-    padding: 5px; /* Adds padding inside submenu links */
+    padding: 2.5px; /* Adds padding inside submenu links */
     display: block; /* Makes submenu links block-level elements */
 }
 
-.dropdown:hover .submenu {
+.dropdown:hover.submenu {
     display: block; /* Shows submenus on hover */
 }
 
-/* Footer */
+/* =================================== */
+/* Footer and Voucher Styles           */
+/* =================================== */
+
 footer {
     background-color: #333; /* Dark background color for footer */
     color: #fff; /* Light text color for footer */
@@ -219,7 +219,6 @@ footer {
     transform: scale(1.05); /* Scales up voucher images on hover */
 }
 
-/* Specific Styles for Voucher Sizes */
 .voucher-img.voucher-200x400 {
     max-width: 100px; /* Sets the maximum width for voucher images */
     max-height: 200px; /* Sets the maximum height for voucher images */
@@ -234,48 +233,9 @@ footer {
     height: auto; /* Maintains aspect ratio */
 }
 
-/* Tooltip */
-a[title] {
-    position: relative; /* Sets the position to relative for positioning child elements */
-}
-
-a[title]::before {
-    content: attr(title); /* Uses the title attribute as content */
-    position: absolute; /* Positions the tooltip absolutely */
-    bottom: 100%; /* Positions the tooltip above the link */
-    left: 50%; /* Centers the tooltip horizontally */
-    transform: translateX(-50%); /* Centers the tooltip */
-    background-color: #333; /* Dark background color for tooltip */
-    color: #fff; /* Light text color for tooltip */
-    padding: 5px; /* Adds padding inside tooltip */
-    border-radius: 4px; /* Rounds the corners of tooltip */
-    font-size: 12px; /* Sets the font size for tooltip */
-    white-space: nowrap; /* Prevents tooltip from wrapping */
-    opacity: 0; /* Hides the tooltip by default */
-    transition: opacity 0.3s ease; /* Adds a smooth transition effect for opacity */
-    pointer-events: none;
-    z-index: 100;
-}
-
-a[title]:hover::before {
-    opacity: 1; /* Shows the tooltip when the link is hovered */
-}
-
-/* Define some CSS variables for easier customization */
-:root {
-    --main-bg-color: #f4f4f9; /* Main background color */
-    --main-text-color: #333; /* Main text color */
-    --link-color: #007acc; /* Link color */
-    --border-color: #ccc; /* Border color */
-    --hover-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow effect for hover state */
-}
-
-h2 {
-    font-size: 1.5em; /* Sets the font size for h2 headings */
-    color: var(--link-color); /* Uses the link color for h2 headings */
-    border-bottom: 2px solid var(--link-color); /* Adds a bottom border to h2 headings */
-    padding-bottom: 5px; /* Adds padding below h2 headings */
-}
+/* =================================== */
+/* Project Styles                      */
+/* =================================== */
 
 ul.project-list {
     list-style: none; /* Removes default list styling */
@@ -283,8 +243,8 @@ ul.project-list {
 }
 
 .project-item {
-    margin-bottom: 20px; /* Adds space below project items */
-    padding: 10px; /* Adds padding inside project items */
+    margin-bottom: 2px; /* Adds space below project items */
+    padding: 1px; /* Adds padding inside project items */
     background-color: #fff; /* Sets the background color for project items */
     border: 1px solid var(--border-color); /* Adds a border to project items */
     border-radius: 8px; /* Rounds the corners of project items */
@@ -292,27 +252,27 @@ ul.project-list {
 }
 
 .project-item:hover {
-    transform: translateY(-3px); /* Moves project items up slightly on hover */
-    box-shadow: var(--hover-shadow); /* Adds a shadow effect on hover */
+    transform: translateY(3px); /* Moves project items up slightly on hover */
+    box-shadow: var(--hover-shadow); /* Adds a shadow to project items on hover */
 }
 
-.project-link {
-    font-size: 1.2em; /* Sets the font size for project links */
-    font-weight: bold; /* Makes project links bold */
-    color: var(--link-color); /* Uses the link color for project links */
-    text-decoration: none; /* Removes underline from project links */
+.project-item h3 {
+    font-size: 1.3em; /* Sets the font size for project titles */
+    color: var(--link-color); /* Uses the link color for project titles */
 }
 
-.project-link:focus {
-    outline: 2px dashed var(--link-color); /* Adds a dashed outline to project links when focused */
+.project-item p {
+    font-size: 1rem; /* Sets the font size for project descriptions */
 }
 
-.project-link:hover {
-    text-decoration: underline; /* Adds underline to project links on hover */
-}
+/* =================================== */
+/* Media Queries                       */
+/* =================================== */
 
-.project-description {
-    font-size: 1em; /* Sets the font size for project descriptions */
-    color: #666; /* Sets the text color for project descriptions */
-    margin-top: 5px; /* Adds space above project descriptions */
+/* Responsive Design for Smaller Screens */
+@media only screen and (max-width: 888px) {
+    .voucher-container {
+        flex-direction: column; /* Stacks voucher items vertically on smaller screens */
+        align-items: center; /* Centers voucher items horizontally */
+    }
 }
