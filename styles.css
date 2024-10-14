@@ -2,14 +2,12 @@
 /* Reset and Global Styles             */
 /* =================================== */
 
-/* Reset all elements to avoid browser-specific styling issues */
 * {
     margin: 0;
     padding: 2.5px;
-    box-sizing: border-box; /* Ensures padding and border are included in the element's total width and height */
+    box-sizing: border-box;
 }
 
-/* Root for theme color variables */
 :root {
     --main-bg-color: #bab1e5;
     --main-text-color: #f00d42;
@@ -29,29 +27,29 @@
 /* =================================== */
 
 body {
-    font-family: Arial, sans-serif; /* Sets the default font for the body */
-    line-height: 1.0; /* Improves readability by increasing line height */
+    font-family: Arial, sans-serif;
+    line-height: 1.0;
     display: flex; 
     flex-direction: column;
-    min-height: 100vh; /* Ensures the body takes at least the full height of the viewport */
-    max-width: 80%; /* Limits the width of the body to 80% of the viewport */
-    background-color: var(--main-bg-color); /* Uses a CSS variable for the background color */
-    color: var(--main-text-color); /* Uses a CSS variable for the text color */
+    min-height: 100vh;
+    max-width: 100%;
+    background-color: var(--main-bg-color);
+    color: var(--main-text-color);
 }
 
 body.light-theme {
-    background-color: #dad7a2; /* Light background color */
-    color: #333; /* Dark text color */
+    background-color: #dad7a2;
+    color: #333;
 }
 
 body.dark-theme {
-    background-color: #2c3e50; /* Dark background color */
-    color: #00beef; /* Light text color */
+    background-color: #2c3e50;
+    color: #00beef;
 }
 
 body.blue-theme {
-    background-color: #b00b1e; /* boobie background color */
-    color: #1ce1ce; /* Ice text color */
+    background-color: #b00b1e;
+    color: #1ce1ce;
 }
 
 /* =================================== */
@@ -59,53 +57,53 @@ body.blue-theme {
 /* =================================== */
 
 a {
-    text-decoration: underline; /* Removes underline from links */
-    font-size: 12px; /* Sets the font size for links */
-    transition: color 0.5s ease; /* Adds a smooth transition effect for color changes */
+    text-decoration: underline;
+    font-size: 12px;
+    transition: color 0.5s ease;
 }
 
 a:hover {
-    text-decoration: underline; /* Adds underline and overline on hover */
+    text-decoration: underline;
     font-weight: 900 ;
 }
 
 body.light-theme a {
-    color: #3498db; /* Link color for light theme */
+    color: #3498db;
 }
 
 body.dark-theme a {
-    color: #e74c3c; /* Link color for dark theme */
+    color: #e74c3c;
 }
 
 body.blue-theme a {
-    color: #f39c12; /* Link color for blue theme */
+    color: #f39c12;
 }
 
 /* Tooltip */
 a[title] {
-    position: relative; /* Sets the position to relative for positioning child elements */
+    position: relative;
 }
 
 a[title]::before {
-    content: attr(title); /* Uses the title attribute as content */
-    position: absolute; /* Positions the tooltip absolutely */
-    bottom: 10%; /* Positions the tooltip above the link */
-    left: 50%; /* Centers the tooltip horizontally */
-    transform: translateX(-50%); /* Centers the tooltip */
-    background-color: #333; /* Dark background color for tooltip */
-    color: #fff; /* Light text color for tooltip */
-    padding: 5px; /* Adds padding inside tooltip */
-    border-radius: 4px; /* Rounds the corners of tooltip */
-    font-size: 12px; /* Sets the font size for tooltip */
-    white-space: nowrap; /* Prevents tooltip from wrapping */
-    opacity: 0; /* Hides the tooltip by default */
-    transition: opacity 0.3s ease; /* Adds a smooth transition effect for opacity */
+    content: attr(title);
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 5px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s ease;
     pointer-events: none;
     z-index: 100;
 }
 
 a[title]:hover::before {
-    opacity: 1; /* Shows the tooltip when the link is hovered */
+    opacity: 1;
 }
 
 /* =================================== */
@@ -113,22 +111,22 @@ a[title]:hover::before {
 /* =================================== */
 
 h1 {
-    margin-bottom: 10px; /* Adds space below the main heading */
-    text-align: center; /* Centers the main heading */
+    margin-bottom: 10px;
+    text-align: center;
 }
 
 h2 {
     font-weight: 900;
-    font-size: 1.5em; /* Sets the font size for h2 headings */
-    color: var(--link-color); /* Uses the link color for h2 headings */
-    border-bottom: 2px solid var(--link-color); /* Adds a bottom border to h2 headings */
-    padding-bottom: 5px; /* Adds padding below h2 headings */
+    font-size: 1.5em;
+    color: var(--link-color);
+    border-bottom: 2px solid var(--link-color);
+    padding-bottom: 5px;
 }
 
 /* Paragraphs */
 p {
-    margin: 1px 0; /* Adds vertical margin to paragraphs */
-    font-size: 12px; /* Sets the font size for paragraphs */
+    margin: 1px 0;
+    font-size: 12px;
 }
 
 /* =================================== */
@@ -136,52 +134,52 @@ p {
 /* =================================== */
 
 nav {
-    position: relative; /* Sets the position to relative for positioning child elements */
+    position: relative;
 }
 
 .navigation-menu {
-    list-style: none; /* Removes default list styling */
-    display: flex; /* Uses flexbox for layout */
-    gap: 10px; /* Adds space between navigation items */
-    padding: 0; /* Removes default padding */
+    list-style: none;
+    display: flex;
+    gap: 10px;
+    padding: 0;
 }
 
 .navigation-menu > li {
-    position: relative; /* Sets the position to relative for positioning child elements */
+    position: relative;
 }
 
 .navigation-menu > li > a {
-    text-decoration: none; /* Removes underline from links */
-    padding: 10px; /* Adds padding inside links */
-    display: block; /* Makes links block-level elements */
+    text-decoration: none;
+    padding: 10px;
+    display: block;
 }
 
 /* Submenus */
 .submenu {
-    display: block; /* Hides submenus by default */
-    position: relative; /* Positions submenus absolutely */
-    background-color: #fff; /* Sets the background color for submenus */
-    padding: 10px; /* Adds padding inside submenus */
-    list-style: none; /* Removes default list styling */
-    margin: 0; /* Removes default margin */
-    border: 1px solid #ccc; /* Adds a border to submenus */
-    top: 10%; /* Positions submenus below the parent item */
-    left: 10; /* Aligns submenus to the left */
-    z-index: 1000; /* Ensures submenus appear above other elements */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a shadow to submenus */
+    display: block;
+    position: relative;
+    background-color: #fff;
+    padding: 10px;
+    list-style: none;
+    margin: 0;
+    border: 1px solid #ccc;
+    top: 10%;
+    left: 10;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .submenu li {
-    margin-bottom: 2.5px; /* Adds space below submenu items */
+    margin-bottom: 2.5px;
 }
 
 .submenu li a {
-    padding: 2.5px; /* Adds padding inside submenu links */
-    display: block; /* Makes submenu links block-level elements */
+    padding: 2.5px;
+    display: block;
 }
 
 .dropdown:hover.submenu {
-    display: block; /* Shows submenus on hover */
+    display: block;
 }
 
 /* =================================== */
@@ -189,48 +187,48 @@ nav {
 /* =================================== */
 
 footer {
-    background-color: #333; /* Dark background color for footer */
-    color: #fff; /* Light text color for footer */
-    padding: 10px; /* Adds padding inside footer */
-    text-align: center; /* Centers text inside footer */
-    width: 100%; /* Sets the width of the footer */
-    position: relative; /* Sets the position to relative for positioning child elements */
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+    position: relative;
 }
 
 /* Voucher Container in Footer */
 .voucher-container {
-    display: flex; /* Uses flexbox for layout */
-    justify-content: space-between; /* Distributes space between voucher items */
-    padding: 10px; /* Adds padding inside voucher container */
-    background-color: #333; /* Matches footer background color */
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #333;
 }
 
 .voucher-item {
-    margin: 0; /* Removes default margin */
+    margin: 0;
 }
 
 /* Voucher Images */
 .voucher-img {
-    border-radius: 8px; /* Rounds the corners of voucher images */
-    transition: transform 0.3s ease; /* Adds a smooth transition effect for transformations */
+    border-radius: 8px;
+    transition: transform 0.3s ease;
 }
 
 .voucher-img:hover {
-    transform: scale(1.05); /* Scales up voucher images on hover */
+    transform: scale(1.05);
 }
 
 .voucher-img.voucher-200x400 {
-    max-width: 100px; /* Sets the maximum width for voucher images */
-    max-height: 200px; /* Sets the maximum height for voucher images */
-    width: auto; /* Maintains aspect ratio */
-    height: auto; /* Maintains aspect ratio */
+    max-width: 100px;
+    max-height: 200px;
+    width: auto;
+    height: auto;
 }
 
 .voucher-img.voucher-400x400 {
-    max-width: 200px; /* Sets the maximum width for voucher images */
-    max-height: 200px; /* Sets the maximum height for voucher images */
-    width: auto; /* Maintains aspect ratio */
-    height: auto; /* Maintains aspect ratio */
+    max-width: 200px;
+    max-height: 200px;
+    width: auto;
+    height: auto;
 }
 
 /* =================================== */
@@ -238,31 +236,31 @@ footer {
 /* =================================== */
 
 ul.project-list {
-    list-style: none; /* Removes default list styling */
-    padding: 0; /* Removes default padding */
+    list-style: none;
+    padding: 0;
 }
 
 .project-item {
-    margin-bottom: 2px; /* Adds space below project items */
-    padding: 1px; /* Adds padding inside project items */
-    background-color: #fff; /* Sets the background color for project items */
-    border: 1px solid var(--border-color); /* Adds a border to project items */
-    border-radius: 8px; /* Rounds the corners of project items */
-    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Adds smooth transition effects for transformations and shadows */
+    margin-bottom: 2px;
+    padding: 1px;
+    background-color: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .project-item:hover {
-    transform: translateY(3px); /* Moves project items up slightly on hover */
-    box-shadow: var(--hover-shadow); /* Adds a shadow to project items on hover */
+    transform: translateY(3px);
+    box-shadow: var(--hover-shadow);
 }
 
 .project-item h3 {
-    font-size: 1.3em; /* Sets the font size for project titles */
-    color: var(--link-color); /* Uses the link color for project titles */
+    font-size: 1.3em;
+    color: var(--link-color);
 }
 
 .project-item p {
-    font-size: 1rem; /* Sets the font size for project descriptions */
+    font-size: 1rem;
 }
 
 /* =================================== */
@@ -272,7 +270,7 @@ ul.project-list {
 /* Responsive Design for Smaller Screens */
 @media only screen and (max-width: 888px) {
     .voucher-container {
-        flex-direction: column; /* Stacks voucher items vertically on smaller screens */
-        align-items: center; /* Centers voucher items horizontally */
+        flex-direction: column;
+        align-items: center;
     }
 }
